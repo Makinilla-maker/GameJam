@@ -26,6 +26,9 @@ bool Target::Start()
 
 bool Target::Update(float dt)
 {
+	position.y += 1;
+	collider->SetPos(position.x, position.y);
+	currentAnimation->Update();
 	return true;
 }
 

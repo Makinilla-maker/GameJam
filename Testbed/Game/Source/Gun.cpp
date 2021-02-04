@@ -42,8 +42,8 @@ bool Gun::Start()
 bool Gun::Update(float dt)
 {
 	
-	position.x += normDestination.x * 5.0f;
-	position.y += normDestination.y * 5.0f;
+	position.x += normDestination.x * 10.0f;
+	position.y += normDestination.y * 10.0f;
 	collider->SetPos(position.x, position.y);
 	currentAnimation->Update();
 
