@@ -30,9 +30,10 @@ private:
 	Animation* currentAnimation;
 
 	SDL_Texture* tex;
-
+	int health;
 	bool isJumping;
 	bool gun = false;
+	bool hit = false;
 };
 
 

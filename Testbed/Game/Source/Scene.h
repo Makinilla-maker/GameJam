@@ -4,7 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "Defs.h"
-
+#include "Timer.h"
 
 class Scene : public Module
 {
@@ -42,7 +42,7 @@ public:
 private:
 
 	SDL_Texture* bckground;
-	
+	Timer timer;
 
 	bool collision = false;
 };
