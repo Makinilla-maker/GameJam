@@ -43,10 +43,14 @@ bool Scene::Start()
 	app->collisions->AddCollider({ 43,235,10,10 }, Collider::Type::TURNRIGHT, this);
 	app->collisions->AddCollider({ 188,235,10,10 }, Collider::Type::GOUP, this);
 	app->collisions->AddCollider({ 168,60,10,10 }, Collider::Type::TURNRIGHT, this);
+	app->collisions->AddCollider({ 212,0,10,250 }, Collider::Type::PLAYERWALLLEFT, this);
+	app->collisions->AddCollider({ 424,0,10,250 }, Collider::Type::PLAYERWALLRIGHT, this);
+	app->collisions->AddCollider({ 200,-5,250,10 }, Collider::Type::PLAYERWALLUP, this);
+	app->collisions->AddCollider({ 200, 235,250,10 }, Collider::Type::PLAYERWALLDOWN, this);
 	app->entityManager->Start();
 
 	app->entityManager->AddEntity({90.0f,157.0f}, Entity::Type::PLAYER);
-	app->entityManager->AddEntity({ 217.0f,115.0f }, Entity::Type::PLAYER2);
+	app->entityManager->AddEntity({ 230.0f,115.0f }, Entity::Type::PLAYER2);
 		
 	waterBckGrnd = app->tex->Load("Assets/Textures/water.png");
 	app->collisions->active = true;

@@ -66,6 +66,11 @@ private:
 	char scoreText[10] = { "\0" };
 	bool a = true;
 
+	bool paredizq = false;
+	bool paredder = false;
+	bool paredarr = false;
+	bool paredaba = false;
+
 };
 
 #endif // _GROUNDENEMY_H_

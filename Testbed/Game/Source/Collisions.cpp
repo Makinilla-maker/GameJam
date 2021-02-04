@@ -10,6 +10,18 @@ Collisions::Collisions(bool startEnabled) : Module()
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 		colliders[i] = nullptr;
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
+
+	matrix[Collider::Type::PLAYER][Collider::Type::PLAYERWALLLEFT] = true;
+	matrix[Collider::Type::PLAYERWALLLEFT][Collider::Type::PLAYER] = true;
+
+	matrix[Collider::Type::PLAYER][Collider::Type::PLAYERWALLRIGHT] = true;
+	matrix[Collider::Type::PLAYERWALLRIGHT][Collider::Type::PLAYER] = true;
+
+	matrix[Collider::Type::PLAYER][Collider::Type::PLAYERWALLUP] = true;
+	matrix[Collider::Type::PLAYERWALLUP][Collider::Type::PLAYER] = true;
+
+	matrix[Collider::Type::PLAYER][Collider::Type::PLAYERWALLDOWN] = true;
+	matrix[Collider::Type::PLAYERWALLDOWN][Collider::Type::PLAYER] = true;
 	
 	matrix[Collider::Type::GUN][Collider::Type::TARGET] = true;
 	
@@ -202,6 +214,18 @@ void Collisions::DebugDraw()
 			break;
 		case Collider::Type::PLAYER2:
 			app->render->DrawRectangle(colliders[i]->rect, 130, 10, 255, alpha);
+			break;
+		case Collider::Type::PLAYERWALLLEFT:
+			app->render->DrawRectangle(colliders[i]->rect, 200, 200, 255, alpha);
+			break;
+		case Collider::Type::PLAYERWALLRIGHT:
+			app->render->DrawRectangle(colliders[i]->rect, 200, 200, 255, alpha);
+			break;
+		case Collider::Type::PLAYERWALLUP:
+			app->render->DrawRectangle(colliders[i]->rect, 200, 200, 255, alpha);
+			break;
+		case Collider::Type::PLAYERWALLDOWN:
+			app->render->DrawRectangle(colliders[i]->rect, 200, 200, 255, alpha);
 			break;
 		}
 	}

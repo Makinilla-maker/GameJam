@@ -12,7 +12,7 @@
 Player::Player(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
 	planeAnimation.loop = true;
-	planeAnimation.PushBack({ 0, 0, 53, 51 });
+	planeAnimation.PushBack({ 0, 0, 13, 19 });
 
 	walkAnimationRight.PushBack({ 13,0, 12, 11 });
 	walkAnimationRight.PushBack({ 26,0, 12, 11 });
@@ -53,27 +53,31 @@ bool Player::Start()
 
 bool Player::Update(float dt)
 {
-		if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
-		{
-			position.y -= 1;
-		}
-		if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
-		{
-			position.y += 1;
-		}
-		if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
-		{
-			position.x -= 1;
-		}
-		if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
-		{
-			position.x += 1;
-		}
+	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && paredarr == false)
+	{
+		position.y -= 1;
+	}
+	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT && paredaba == false)
+	{
+		position.y += 1;
+	}
+	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && paredizq == false)
+	{
+		position.x -= 1;
+	}
+	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && paredder == false)
+	{
+		position.x += 1;
+	}
 		if (debug == true)
 		{
 			app->collisions->DebugDraw();
 		}
 
+		paredizq = false;
+		paredder = false;
+		paredarr = false;
+		paredaba = false;
 
 		collider->SetPos(position.x, position.y);
 		cameraControl = true;
@@ -91,14 +95,23 @@ bool Player::Draw()
 
 void Player::Collision(Collider* coll)
 {
-	if (coll->type == Collider::Type::FLOOR)
+	if (coll->type == Collider::Type::PLAYERWALLLEFT)
 	{
-		onGround = true;
-		position.y = coll->rect.y - coll->rect.h - 9;
-		vely = 0;
-		position.y = position.y;
-		cameraControl = true;
+		paredizq = true;
 	}
+	if (coll->type == Collider::Type::PLAYERWALLRIGHT)
+	{
+		paredder = true;
+	}
+	if (coll->type == Collider::Type::PLAYERWALLUP)
+	{
+		paredarr = true;
+	}
+	if (coll->type == Collider::Type::PLAYERWALLDOWN)
+	{
+		paredaba = true;
+	}
+
 
 
 }
