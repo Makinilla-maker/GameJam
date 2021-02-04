@@ -10,34 +10,20 @@
 #include "Windows.h"
 #include <time.h>
 
-
-
-
 PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
-	idleAnimation.loop = true;
-	idleAnimation.PushBack({ 0, 0, 12, 11 });
 
-	walkAnimationRight.PushBack({ 13,0, 12, 11 });
-	walkAnimationRight.PushBack({ 26,0, 12, 11 });
-	walkAnimationRight.PushBack({ 39,0, 12, 11 });
-	walkAnimationRight.PushBack({ 53,0, 14, 11 });
-	walkAnimationRight.loop = true;
-	walkAnimationRight.speed = 0.1f;
+	planeAnimation.PushBack({ 0,0, 53, 51 });
+	planeAnimation.PushBack({ 64,0, 53, 51 });
+	planeAnimation.PushBack({ 128,0, 53, 51 });
+	planeAnimation.PushBack({ 0,64, 53, 51 });
+	planeAnimation.PushBack({ 64,64, 53, 51 });
 
-	walkAnimationLeft.PushBack({ 13,12, 12, 11 });
-	walkAnimationLeft.PushBack({ 26,12, 12, 11 });
-	walkAnimationLeft.PushBack({ 39,12, 12, 11 });
-	walkAnimationLeft.PushBack({ 53,12, 14, 11 });
-	walkAnimationLeft.loop = true;
-	walkAnimationLeft.speed = 0.1f;
+	planeAnimation.loop = true;
+	planeAnimation.speed = 0.3f;
+	currentAnimation = &planeAnimation;
 
-	jumpAnimation.PushBack({ 1, 23, 12, 12 });
-	jumpAnimation.loop = true;
-
-	currentAnimation = &idleAnimation;
-
-	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 12, 11 }), Collider::Type::PLAYER, listener);
+	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 6, 5 }), Collider::Type::PLAYER, listener);
 
 	jumpFx = app->audio->LoadFx("Assets/Audio/FX/jump.wav");
 	doubleJumpFx = app->audio->LoadFx("Assets/Audio/FX/double_jump.wav");
@@ -72,7 +58,7 @@ bool PlayerEntity::Update(float dt)
 		int ballTime = timer.ReadSec();
 		if (ballTime == 1 && app->entityManager->entityList.Count() > 1)
 		{
-			app->entityManager->AddEntity({ position.x, position.y }, Entity::Type::GUN);
+			app->entityManager->AddEntity({ position.x+20, position.y+20 }, Entity::Type::GUN);
 			ballTime = 0;
 			timer.Start();
 
@@ -86,7 +72,6 @@ bool PlayerEntity::Update(float dt)
 		{
 			app->collisions->DebugDraw();
 		}
-
 
 		collider->SetPos(position.x, position.y);
 		cameraControl = true;
@@ -103,6 +88,9 @@ bool PlayerEntity::Draw()
 {
 	SDL_Rect playerRect = currentAnimation->GetCurrentFrame();
 	app->render->DrawTexture(texture, position.x, position.y, &playerRect);
+	/*SDL_Rect playerRect1 = { 0,0,53,51 };
+	SDL_Rect playerRect2 = { 290,490,128,128 };
+	SDL_RenderCopy(app->render->renderer, texture, &playerRect1, &playerRect2);*/
 
 	return true;
 }

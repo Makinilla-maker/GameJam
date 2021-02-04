@@ -25,10 +25,9 @@ bool EntityManager::Awake()
 
 bool EntityManager::Start()
 {
-	texPlayer = app->tex->Load("Assets/Textures/player.png");
+	texPlayer = app->tex->Load("Assets/Textures/allAnims.png");
 	texTarget = app->tex->Load("Assets/Textures/target.png");
 	texGun = app->tex->Load("Assets/Textures/hgranade.png");
-
 	
 	playerData.resetCamera = false;
 

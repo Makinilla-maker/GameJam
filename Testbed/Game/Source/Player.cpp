@@ -8,15 +8,11 @@
 #include "Audio.h"
 #include "EntityManager.h"
 #include "Windows.h"
-#include <time.h>
-
-
-
 
 Player::Player(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
-	idleAnimation.loop = true;
-	idleAnimation.PushBack({ 0, 0, 12, 11 });
+	planeAnimation.loop = true;
+	planeAnimation.PushBack({ 0, 0, 53, 51 });
 
 	walkAnimationRight.PushBack({ 13,0, 12, 11 });
 	walkAnimationRight.PushBack({ 26,0, 12, 11 });
@@ -35,7 +31,7 @@ Player::Player(Module* listener, fPoint position, SDL_Texture* texture, Type typ
 	jumpAnimation.PushBack({ 1, 23, 12, 12 });
 	jumpAnimation.loop = true;
 
-	currentAnimation = &idleAnimation;
+	currentAnimation = &planeAnimation;
 
 	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 12, 11 }), Collider::Type::PLAYER, listener);
 

@@ -31,7 +31,7 @@ public:
 
 private:
 
-	Animation idleAnimation;
+	Animation planeAnimation;
 	Animation walkAnimationRight;
 	Animation walkAnimationLeft;
 	Animation jumpAnimation;
