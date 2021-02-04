@@ -46,15 +46,15 @@ bool Scene::Start()
 	app->entityManager->Start();
 	app->entityManager->AddEntity({217.0f,110.0f}, Entity::Type::PLAYER);
 	
-	btn1 = new GuiButton(10, { 60, 29, 78, 23 }, "1");
+	btn1 = new GuiButton(10, { 2, 2, 25, 25 }, "1");
 	btn1->SetObserver((Scene*)this);
 	btn1->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
-	btn2 = new GuiButton(10, { 60, 29, 78, 23 }, "2");
+	btn2 = new GuiButton(10, { 2, 28, 25, 25 }, "2");
 	btn2->SetObserver((Scene*)this);
 	btn2->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
-	btn3 = new GuiButton(10, { 60, 29, 78, 23 }, "3");
+	btn3 = new GuiButton(10, { 2, 54, 25, 25 }, "3");
 	btn3->SetObserver((Scene*)this);
 	btn3->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
@@ -110,7 +110,6 @@ void Scene::OnCollision(Collider* a, Collider* b)
 {
 	
 }
-
 // Called before quitting
 bool Scene::CleanUp()
 {
