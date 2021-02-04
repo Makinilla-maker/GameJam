@@ -36,7 +36,7 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 
 
 	letitiaXeringa.loop = true;
-	letitiaXeringa.speed = 0.15f;
+	letitiaXeringa.speed = 0.120f;
 	
 	adaComputer.PushBack({ 205,0, 57, 56 });
 	adaComputer.PushBack({ 269,0, 57, 56 });
