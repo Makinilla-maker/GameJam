@@ -54,6 +54,9 @@
     <ClCompile Include="Source\Player.cpp">
       <Filter>Entities\Playable</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Coins.cpp">
+      <Filter>Entities\Non Playable</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -135,6 +138,9 @@
     </ClInclude>
     <ClInclude Include="Source\Player.h">
       <Filter>Entities\Playable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Coins.h">
+      <Filter>Entities\Non Playable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

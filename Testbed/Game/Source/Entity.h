@@ -19,6 +19,7 @@ public:
 		TARGET,
 		GUN,
 		PLAYER2,
+		COINS,
 	
 		
 		

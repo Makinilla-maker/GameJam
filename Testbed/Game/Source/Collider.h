@@ -28,6 +28,7 @@ struct Collider
 		PLAYERWALLRIGHT,
 		PLAYERWALLUP,
 		PLAYERWALLDOWN,
+		COINS,
 
 		MAX
 	};

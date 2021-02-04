@@ -22,6 +22,9 @@ Collisions::Collisions(bool startEnabled) : Module()
 
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYERWALLDOWN] = true;
 	matrix[Collider::Type::PLAYERWALLDOWN][Collider::Type::PLAYER] = true;
+
+	matrix[Collider::Type::PLAYER][Collider::Type::COINS] = true;
+	matrix[Collider::Type::COINS][Collider::Type::PLAYER] = true;
 	
 	matrix[Collider::Type::GUN][Collider::Type::TARGET] = true;
 	
@@ -225,6 +228,9 @@ void Collisions::DebugDraw()
 			app->render->DrawRectangle(colliders[i]->rect, 200, 200, 255, alpha);
 			break;
 		case Collider::Type::PLAYERWALLDOWN:
+			app->render->DrawRectangle(colliders[i]->rect, 200, 200, 255, alpha);
+			break;
+		case Collider::Type::COINS:
 			app->render->DrawRectangle(colliders[i]->rect, 200, 200, 255, alpha);
 			break;
 		}

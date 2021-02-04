@@ -52,6 +52,7 @@ bool Scene::Start()
 
 	app->entityManager->AddEntity({90.0f,157.0f}, Entity::Type::PLAYER);
 	app->entityManager->AddEntity({ 230.0f,115.0f }, Entity::Type::PLAYER2);
+	app->entityManager->AddEntity({ 250.0f,115.0f }, Entity::Type::COINS);
 		
 	waterBckGrnd = app->tex->Load("Assets/Textures/water.png");
 	app->collisions->active = true;

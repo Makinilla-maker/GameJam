@@ -9,7 +9,7 @@
 #include "Target.h"
 #include "Gun.h"
 #include "Player.h"
-
+#include "Coins.h"
 #include "Scene.h"
 
 
@@ -125,6 +125,10 @@ void EntityManager::AddEntity(fPoint position, Entity::Type type)
 	case Entity::Type::PLAYER2:
 		player2Entity = (Entity*)(new Player((Module*)this, position, playerAnimation, type));
 		entityList.Add(player2Entity);
+		break;
+	case Entity::Type::COINS:
+		coins = (Entity*)(new Coins((Module*)this, position, texTarget, type));
+		entityList.Add(coins);
 		break;
 	}
 
