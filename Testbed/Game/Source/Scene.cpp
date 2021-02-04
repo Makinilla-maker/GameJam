@@ -81,7 +81,7 @@ bool Scene::Update(float dt)
 {
 	int miniGameTime = timer.ReadSec();
 
-	if (miniGameTime == 1)
+	if (miniGameTime > 1)
 	{
 		app->entityManager->AddEntity({ 110.0f,0.0f }, Entity::Type::TARGET);
 		miniGameTime = 0;
