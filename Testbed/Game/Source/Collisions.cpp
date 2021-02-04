@@ -9,22 +9,11 @@ Collisions::Collisions(bool startEnabled) : Module()
 {
 	for (uint i = 0; i < MAX_COLLIDERS; ++i)
 		colliders[i] = nullptr;
-	/*matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
-	matrix[Collider::Type::PLAYER][Collider::Type::FLOOR] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::WATER] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::AIR] = true;
-	matrix[Collider::Type::PLAYER][Collider::Type::WIN] = true;
-
-
-	matrix[Collider::Type::FLOOR][Collider::Type::PLAYER] = true;
-	matrix[Collider::Type::FLOOR][Collider::Type::FLOOR] = false;
-	matrix[Collider::Type::FLOOR][Collider::Type::GUN] = true;
-
-	matrix[Collider::Type::GUN][Collider::Type::WATER] = true;
+	matrix[Collider::Type::PLAYER][Collider::Type::PLAYER] = false;
+	
 	matrix[Collider::Type::GUN][Collider::Type::TARGET] = true;
-	matrix[Collider::Type::GUN][Collider::Type::FLOOR] = true;
-
-	matrix[Collider::Type::TARGET][Collider::Type::GUN] = true;*/
+	
+	matrix[Collider::Type::TARGET][Collider::Type::GUN] = true;
 }
 
 // Called before render is available

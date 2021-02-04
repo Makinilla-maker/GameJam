@@ -6,6 +6,7 @@
 #include "Entity.h"
 #include "Animation.h"
 #include "DynArray.h"
+#include "Timer.h"
 
 struct SDL_Texture;
 struct Collider;
@@ -40,6 +41,8 @@ private:
 
 	float speedX;
 	float speedY;
+
+	Timer timer;
 };
 
 

@@ -5,7 +5,7 @@
 #include "Entity.h"
 #include "Animation.h"
 #include "DynArray.h"
-
+#include "Timer.h"
 
 
 struct SDL_Texture;
@@ -57,10 +57,13 @@ private:
 	bool winCondition = false;
 	bool deathCondition = false;
 	bool advice;
+	bool minigame;
 
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
 	bool a = true;
+
+	Timer timer;
 };
 
 #endif // _GROUNDENEMY_H_

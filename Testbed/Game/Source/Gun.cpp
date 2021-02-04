@@ -22,6 +22,10 @@ Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : E
 	modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
 	normDestination = { vDestination.x / modDestination, vDestination.y / modDestination }; 
 
+	collider = collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 16, 16 }, Collider::Type::GUN, listener);
+
+	
+
 }
 
 bool Gun::Start()
@@ -31,9 +35,10 @@ bool Gun::Start()
 
 bool Gun::Update(float dt)
 {
+	
 	position.x += normDestination.x * 5.0f;
 	position.y += normDestination.y * 5.0f;
-	//collider->SetPos(position.x, position.y);
+	collider->SetPos(position.x, position.y);
 	currentAnimation->Update();
 
 	return true;
@@ -49,7 +54,12 @@ bool Gun::Draw()
 
 void Gun::Collision(Collider* coll)
 {
-	
+	if (coll->type == Collider::Type::TARGET)
+	{
+		pendingToDelete = true;
+		collider->pendingToDelete = true;
+
+	}
 	
 }
 

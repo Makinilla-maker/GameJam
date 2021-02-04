@@ -15,7 +15,7 @@ Target::Target(Module* listener, fPoint position, SDL_Texture* texture, Type typ
 	idleAnimation.PushBack({ 0, 0, 20, 20 });
 	currentAnimation = &idleAnimation;
 
-	//collider = collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 20, 20 }, Collider::Type::TARGET, listener);
+	collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 20, 20 }, Collider::Type::TARGET, listener);
 
 }
 
@@ -39,12 +39,12 @@ bool Target::Draw()
 
 void Target::Collision(Collider* coll)
 {
-	/*if (coll->type == Collider::Type::GUN)
+	if (coll->type == Collider::Type::GUN)
 	{
 		pendingToDelete = true;
 		collider->pendingToDelete = true;
 		
-	}*/
+	}
 }
 
 void Target::CleanUp()
