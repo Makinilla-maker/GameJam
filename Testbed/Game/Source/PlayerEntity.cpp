@@ -125,8 +125,51 @@ bool PlayerEntity::Update(float dt)
 bool PlayerEntity::Draw()
 {
 	SDL_Rect playerRect = currentAnimation->GetCurrentFrame();
-	app->render->DrawTexture(texture, position.x, position.y, &playerRect,0,angle);
 
+	fPoint vDestination = { 0,0 };
+	float modDestination = 0;
+	fPoint normDestination = { 0,0 };
+
+	fPoint pos = { 0,0 };
+	if (collider!=nullptr)
+	{
+		SDL_Rect r = { 3*position.x,3*position.y,3*53,3*52 };
+		pos = { float(r.x + (r.w / 2)), float(r.y + (r.h / 2)) };
+		SDL_SetRenderDrawColor(app->render->renderer, 0, 0, 255, 255);
+		SDL_RenderDrawRect(app->render->renderer, &r);
+	}
+
+	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
+	{
+		if (app->entityManager->entityList.At(i + 2) != nullptr)
+		{
+			vDestination = { app->entityManager->entityList.At(i + 2)->data->position.x - pos.x, app->entityManager->entityList.At(i + 2)->data->position.y - pos.y };
+			modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
+			normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
+		}
+	}
+	
+	if (vDestination.y < 3 * pos.y)
+	{
+		app->entityManager->entityList.At(0)->data->angle = asin(vDestination.x / modDestination) * (180 / 3.1415);
+	}
+	else
+	{
+		app->entityManager->entityList.At(0)->data->angle = acos(vDestination.y / modDestination) * (180 / 3.1415);
+	}
+	SDL_SetRenderDrawColor(app->render->renderer, 0, 0, 255, 255);
+	SDL_RenderDrawLine(app->render->renderer, pos.x, 0, pos.x, SCREEN_HEIGHT);
+	SDL_RenderDrawLine(app->render->renderer, 0, pos.y, SCREEN_WIDTH, pos.y);
+	app->render->DrawTexture(texture, position.x, position.y, &playerRect, 0, angle);
+
+	SDL_SetRenderDrawColor(app->render->renderer, 255, 0, 255, 255);
+	SDL_Point mouse{ 0,0 };
+	SDL_Point center{ SCREEN_WIDTH/2,SCREEN_HEIGHT/2 };
+	SDL_GetMouseState(&mouse.x, &mouse.y);
+	SDL_Point p2{ 0,0 };
+	p2.x = center.x + 2 * (mouse.x - center.x);
+	p2.y = center.y + 2 * (mouse.y - center.y);
+	SDL_RenderDrawLine(app->render->renderer, center.x, center.y, p2.x, p2.y);
 	return true;
 }
 

@@ -50,7 +50,6 @@ bool Gun::Draw()
 {
 	SDL_Rect GunRect = currentAnimation->GetCurrentFrame();
 	app->render->DrawTexture(texture, position.x, position.y, &GunRect);
-	app->entityManager->entityList.At(0)->data->angle = -acos(vDestination.x / modDestination) * (180 / 3.1415);
 	return true;
 }
 
