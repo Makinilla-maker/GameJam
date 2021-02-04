@@ -29,6 +29,7 @@ public:
 
 	void CleanUp();
 
+	
 private:
 
 	Animation planeAnimation;
@@ -65,6 +66,7 @@ private:
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
 	bool a = true;
+
 
 	Timer timer;
 };

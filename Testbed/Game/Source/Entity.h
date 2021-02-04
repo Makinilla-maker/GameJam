@@ -57,6 +57,7 @@ public:
 	Type type;
 	fPoint position;
 	SDL_Texture* texture;
+	float angle = 0;
 
 	Collider* collider = nullptr;
 

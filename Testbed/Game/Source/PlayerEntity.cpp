@@ -8,7 +8,7 @@
 #include "Audio.h"
 #include "EntityManager.h"
 #include "Windows.h"
-#include <time.h>
+#include <math.h>
 
 PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
@@ -87,7 +87,7 @@ bool PlayerEntity::Update(float dt)
 bool PlayerEntity::Draw()
 {
 	SDL_Rect playerRect = currentAnimation->GetCurrentFrame();
-	app->render->DrawTexture(texture, position.x, position.y, &playerRect);
+	app->render->DrawTexture(texture, position.x, position.y, &playerRect,0,-angle*(360/ 2 * 3.1415 ));
 	/*SDL_Rect playerRect1 = { 0,0,53,51 };
 	SDL_Rect playerRect2 = { 290,490,128,128 };
 	SDL_RenderCopy(app->render->renderer, texture, &playerRect1, &playerRect2);*/

@@ -24,6 +24,8 @@ Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : E
 			vDestination = { app->entityManager->entityList.At(i+1)->data->position.x - position.x, app->entityManager->entityList.At(i+1)->data->position.y - position.y };
 			modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
 			normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
+			//app->entityManager->entityList.At(0)->data->angle = acos((vDestination.x*0+vDestination.y*1) / ((sqrt(pow(0,2) + pow(1,2))*(sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2))))));
+			//app->entityManager->entityList.At(0)->data->angle = atan(position.x / position.y);
 		}
 		
 	}
