@@ -17,10 +17,16 @@ Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : E
 	rightAnimation.speed = 0.1f;
 
 	currentAnimation = &rightAnimation;
-
-	vDestination = { app->entityManager->entityList.At(1)->data->position.x - position.x, app->entityManager->entityList.At(1)->data->position.y - position.y};
-	modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
-	normDestination = { vDestination.x / modDestination, vDestination.y / modDestination }; 
+	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
+	{
+		if(app->entityManager->entityList.At(i) != nullptr)
+		{
+			vDestination = { app->entityManager->entityList.At(i)->data->position.x - position.x, app->entityManager->entityList.At(i)->data->position.y - position.y };
+			modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
+			normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
+		}
+		
+	}
 
 	collider = collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 16, 16 }, Collider::Type::GUN, listener);
 

@@ -54,7 +54,7 @@ bool PlayerEntity::Start()
 
 bool PlayerEntity::Update(float dt)
 {
-	int miniGameTime = timer.ReadSec();
+	/*int miniGameTime = timer.ReadSec();
 	if (miniGameTime == 5)
 	{
 		minigame = true;
@@ -62,16 +62,17 @@ bool PlayerEntity::Update(float dt)
 	if (miniGameTime == 25)
 	{
 		minigame = false;
-	}
+	}*/
 	if (!minigame)
 	{
-		/*int ballTime = timer.ReadSec();
-		if (ballTime == 1)
+		int ballTime = timer.ReadSec();
+		if (ballTime == 1 && app->entityManager->entityList.Count() > 1)
 		{
 			app->entityManager->AddEntity({ position.x, position.y }, Entity::Type::GUN);
 			ballTime = 0;
 			timer.Start();
-		}*/
+
+		}
 		if (app->input->GetKey(SDL_SCANCODE_F9) == KEY_DOWN)
 		{
 			if (debug == false) debug = true;
