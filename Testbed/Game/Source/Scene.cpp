@@ -126,9 +126,5 @@ bool Scene::CleanUp()
 
 bool Scene::OnGuiMouseClickEvent(GuiControl* control)
 {
-
-
-      
-
     return true;
 }
