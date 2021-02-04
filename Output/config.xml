@@ -1,0 +1,23 @@
+<!-- Config file for the game -->
+<config>
+  <app framerate_cap="60">
+    <title>Game (Lost by TDM Studios)</title>
+    <organization>UPC</organization>
+  </app>
+  <renderer>
+    <vsync value="true"/>
+  </renderer>
+  <window>
+    <resolution width="1280" height="720" scale="3"/>
+    <fullscreen value="false"/>
+    <borderless value="false"/>
+    <resizable value="false"/>
+    <fullscreen_window value="false"/>
+  </window>
+  <map>
+    <folder>Assets/map/</folder>
+  </map>
+  <player>
+    <folder>Assets/Textures/player</folder>
+  </player>
+</config>
