@@ -50,12 +50,12 @@ bool GuiButton::Draw(Render* render)
 {
     // Draw the right button depending on state
     switch (state)
-        {
+    {
         case GuiControlState::DISABLED:
             render->DrawTexture(textureDisable, bounds.x, bounds.y, NULL);
             break;
         case GuiControlState::NORMAL:
-            render->DrawTexture(textureIdle, bounds.x, bounds.y, NULL);
+             render->DrawTexture(textureIdle, bounds.x, bounds.y, NULL);
             audio = false;
             break;
         case GuiControlState::FOCUSED:
@@ -73,7 +73,7 @@ bool GuiButton::Draw(Render* render)
             break;
         default:
             break;
-        }
+    }
     
     return false;
 }

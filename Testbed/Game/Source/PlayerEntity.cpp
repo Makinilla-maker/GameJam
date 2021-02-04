@@ -116,9 +116,7 @@ void PlayerEntity::Collision(Collider* coll)
 		vely = 0;
 		position.y = position.y;
 		cameraControl = true;
-	}
-
-	
+	}	
 }
 void PlayerEntity::CleanUp()
 {
