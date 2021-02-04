@@ -8,6 +8,7 @@
 #include "PlayerEntity.h"
 #include "Target.h"
 #include "Gun.h"
+#include "Player.h"
 
 #include "Scene.h"
 
@@ -121,6 +122,10 @@ void EntityManager::AddEntity(fPoint position, Entity::Type type)
 	case Entity::Type::GUN:
 		gunEntity = (Entity*)(new Gun((Module*)this, position, texGun, type));
 		entityList.Add(gunEntity);
+		break;
+	case Entity::Type::PLAYER2:
+		player2Entity = (Entity*)(new Player((Module*)this, position, texGun, type));
+		entityList.Add(player2Entity);
 		break;
 	}
 

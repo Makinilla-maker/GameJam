@@ -19,9 +19,9 @@ Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : E
 	currentAnimation = &rightAnimation;
 	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
 	{
-		if(app->entityManager->entityList.At(i) != nullptr)
+		if(app->entityManager->entityList.At(i+1) != nullptr)
 		{
-			vDestination = { app->entityManager->entityList.At(i)->data->position.x - position.x, app->entityManager->entityList.At(i)->data->position.y - position.y };
+			vDestination = { app->entityManager->entityList.At(i+1)->data->position.x - position.x, app->entityManager->entityList.At(i+1)->data->position.y - position.y };
 			modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
 			normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
 		}

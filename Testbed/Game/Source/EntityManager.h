@@ -79,6 +79,7 @@ private:
 	Entity* playerEntity;
 	Entity* targetEntity;
 	Entity* gunEntity;
+	Entity* player2Entity;
 
 	//Fonts
 	int scoreFont = -1;

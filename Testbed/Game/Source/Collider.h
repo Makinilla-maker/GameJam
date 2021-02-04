@@ -23,6 +23,7 @@ struct Collider
 		TURNRIGHT,
 		GOUP,
 		GODOWN,
+		PLAYER2,
 
 		MAX
 	};

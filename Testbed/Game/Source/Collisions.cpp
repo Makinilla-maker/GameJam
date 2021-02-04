@@ -200,6 +200,9 @@ void Collisions::DebugDraw()
 		case Collider::Type::GODOWN:
 			app->render->DrawRectangle(colliders[i]->rect, 130, 10, 255, alpha);
 			break;
+		case Collider::Type::PLAYER2:
+			app->render->DrawRectangle(colliders[i]->rect, 130, 10, 255, alpha);
+			break;
 		}
 	}
 }

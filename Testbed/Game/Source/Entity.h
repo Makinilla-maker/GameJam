@@ -18,7 +18,7 @@ public:
 		AIR_ENEMY,
 		TARGET,
 		GUN,
-		
+		PLAYER2,
 	
 		
 		
