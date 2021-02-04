@@ -65,7 +65,7 @@ bool Logo::PostUpdate()
 	
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) app->collisions->debug = !app->collisions->debug;
 	
-	app->render->DrawTexture(bckground, 0,-48, NULL);
+	app->render->DrawTexture(bckground, 0,0, NULL);
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN)
 	{
 		CleanUp();
