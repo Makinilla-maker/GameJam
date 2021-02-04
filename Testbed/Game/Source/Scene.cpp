@@ -5,7 +5,7 @@
 #include "Render.h"
 #include "Window.h"
 #include "Scene.h"
-#include "Player.h"
+#include "PlayerEntity.h"
 #include "Collisions.h"
 #include "EntityManager.h"
 
@@ -39,32 +39,14 @@ bool Scene::Start()
 	bckground = app->tex->Load("Assets/Textures/background.png");
 
 	app->entityManager->Start();
-	app->entityManager->AddEntity({50.0f,100.0f}, 60.0f, 22.0f, 25.0f, Body::Type::PLAYER);
+	app->entityManager->AddEntity({217.0f,110.0f}, Entity::Type::PLAYER);
 
-	app->entityManager->AddEntity({ 300.0f, 100.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 480.0f, 70.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 540.0f, 30.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 700.0f, 90.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 820.0f, 120.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 900.0f, 55.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 1020.0f, 75.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 1160.0f, 85.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 1320.0f, 30.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-	app->entityManager->AddEntity({ 1520.0f, 60.0f }, 15.0f, 20.0f, 20.0f, Body::Type::TARGET);
-
+	app->entityManager->AddEntity({ 100.0f,50.0f }, Entity::Type::TARGET);
+	
 	waterBckGrnd = app->tex->Load("Assets/Textures/water.png");
 	app->collisions->active = true;
 
-	app->collisions->AddCollider({ 0,0,2000,174 }, Collider::Type::AIR, this);
-
-	app->collisions->AddCollider({ 0,200,183,50 }, Collider::Type::FLOOR, this);
-	app->collisions->AddCollider({ 337,200,1800,50 }, Collider::Type::FLOOR, this);
-
-	app->collisions->AddCollider({ 183,200,154,500 }, Collider::Type::WATER, this);
-
-	app->collisions->AddCollider({ 1930,180,26,26 }, Collider::Type::WIN, this);
-
-	app->entityManager->score = 0;
+	
 
 	return true;
 }
@@ -78,7 +60,8 @@ bool Scene::PreUpdate()
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
-	if (app->entityManager->entityList.At(0)->data->position.x > 100.0f && app->entityManager->entityList.At(0)->data->position.x < 1620.0f) app->render->camera.x = -(app->entityManager->entityList.At(0)->data->position.x * 3) +300;
+	
+	
 	return true;
 }
 

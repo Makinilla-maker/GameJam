@@ -9,7 +9,7 @@
 #include "EntityManager.h"
 #include "Log.h"
 
-Gun::Gun(Module* listener, fPoint position, float mass, float weight, float height, SDL_Texture* texture, Type type) : Body(listener, position, mass, weight, height, texture, type)
+Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
 
 	rightAnimation.loop = true;
@@ -18,19 +18,7 @@ Gun::Gun(Module* listener, fPoint position, float mass, float weight, float heig
 
 	currentAnimation = &rightAnimation;
 
-	collider = collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 16, 16 }, Collider::Type::GUN, listener);
-
-	dirVelo = { 1.0f,0 };
-	surface = 1;
-	cd = 1;
-	velRelative = 20;
-	volume = 0;
-	inWater = false;
-
-	app->input->GetMousePosition(x, y);	
-	app->render->ScreenToWorld(x,y);
-
-	vDestination = { x - (float)50, y - (float)190};
+	vDestination = { app->entityManager->entityList.At(1)->data->position.x - position.x, app->entityManager->entityList.At(1)->data->position.y - position.y};
 	modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
 	normDestination = { vDestination.x / modDestination, vDestination.y / modDestination }; 
 
@@ -43,10 +31,9 @@ bool Gun::Start()
 
 bool Gun::Update(float dt)
 {
-	/////////////////////////////////////////PHYSICS LOGIC/////////////////////////////////////////
-	
-
-	collider->SetPos(position.x, position.y);
+	position.x += normDestination.x * 5.0f;
+	position.y += normDestination.y * 5.0f;
+	//collider->SetPos(position.x, position.y);
 	currentAnimation->Update();
 
 	return true;
@@ -62,21 +49,8 @@ bool Gun::Draw()
 
 void Gun::Collision(Collider* coll)
 {
-	if (coll->type == Collider::Type::FLOOR)
-	{
-		pendingToDelete = true;
-		collider->pendingToDelete = true;
-	}
-	if (coll->type == Collider::Type::WATER)
-	{
-		inWater = true;
-	}
-	if (coll->type == Collider::Type::TARGET)
-	{
-		pendingToDelete = true;
-		collider->pendingToDelete = true;
-		
-	}
+	
+	
 }
 
 void Gun::CleanUp()

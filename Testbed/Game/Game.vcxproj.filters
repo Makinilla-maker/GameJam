@@ -19,17 +19,11 @@
     <ClCompile Include="Source\Scene.cpp">
       <Filter>Scenes\Levels</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Player.cpp">
-      <Filter>Entities\Playable</Filter>
-    </ClCompile>
     <ClCompile Include="Source\EntityManager.cpp">
       <Filter>Entities</Filter>
     </ClCompile>
     <ClCompile Include="Source\Gun.cpp">
       <Filter>Entities\Weapons</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Target.cpp">
-      <Filter>Entities\Non Playable</Filter>
     </ClCompile>
     <ClCompile Include="Source\ModuleFonts.cpp" />
     <ClCompile Include="Source\Logo.cpp">
@@ -37,6 +31,12 @@
     </ClCompile>
     <ClCompile Include="Source\Win.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PlayerEntity.cpp">
+      <Filter>Entities\Playable</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Target.cpp">
+      <Filter>Entities\Non Playable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -82,17 +82,11 @@
     <ClInclude Include="Source\Entity.h">
       <Filter>Entities</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Player.h">
-      <Filter>Entities\Playable</Filter>
-    </ClInclude>
     <ClInclude Include="Source\EntityManager.h">
       <Filter>Entities</Filter>
     </ClInclude>
     <ClInclude Include="Source\Gun.h">
       <Filter>Entities\Weapons</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Target.h">
-      <Filter>Entities\Non Playable</Filter>
     </ClInclude>
     <ClInclude Include="Source\ModuleFonts.h" />
     <ClInclude Include="Source\Logo.h">
@@ -100,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="Source\Win.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PlayerEntity.h">
+      <Filter>Entities\Playable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Target.h">
+      <Filter>Entities\Non Playable</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

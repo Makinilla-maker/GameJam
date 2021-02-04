@@ -9,10 +9,10 @@
 struct SDL_Texture;
 struct Collider;
 
-class Target : Body
+class Target : Entity
 {
 public:
-	Target(Module* listener, fPoint position, float mass, float weight, float height, SDL_Texture* texture, Type type);
+	Target(Module* listener, fPoint position, SDL_Texture* texture, Type type);
 
 	bool Start();
 

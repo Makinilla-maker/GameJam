@@ -10,10 +10,10 @@
 struct SDL_Texture;
 struct Collider;
 
-class Gun : Body
+class Gun : Entity
 {
 public:
-	Gun(Module* listener, fPoint position, float mass, float weight, float height, SDL_Texture* texture, Type type);
+	Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type);
 
 	bool Start();
 

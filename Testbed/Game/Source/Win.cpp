@@ -6,7 +6,7 @@
 #include "Window.h"
 #include "Logo.h"
 #include "Win.h"
-#include "Player.h"
+#include "PlayerEntity.h"
 #include "Collisions.h"
 #include "EntityManager.h"
 
