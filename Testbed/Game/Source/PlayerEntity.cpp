@@ -19,8 +19,12 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 	planeAnimation.PushBack({ 0,64, 53, 51 });
 	planeAnimation.PushBack({ 64,64, 53, 51 });
 
+	planeAnimation.PushBack({ 128,64, 53, 51 });
+	planeAnimation.PushBack({ 0,128, 53, 51 });
+	planeAnimation.PushBack({ 64,128, 53, 51 });
+
 	planeAnimation.loop = true;
-	planeAnimation.speed = 0.3f;
+	planeAnimation.speed = 0.15f;
 
 	letitiaXeringa.PushBack({ 0,179, 20, 58 });
 	letitiaXeringa.PushBack({ 64,179, 20, 58 });
@@ -40,14 +44,14 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 	adaComputer.PushBack({ 205,64, 57, 56 });
 	adaComputer.PushBack({ 269,64, 57, 56 });
 	adaComputer.PushBack({ 333,64, 57, 56 });
-	adaComputer.PushBack({ 205,127, 57, 56 });
-	adaComputer.PushBack({ 269,127, 57, 56 });
-	adaComputer.PushBack({ 333,127, 57, 56 });
+	adaComputer.PushBack({ 205,128, 57, 56 });
+	adaComputer.PushBack({ 269,128, 57, 56 });
+	adaComputer.PushBack({ 333,128, 57, 56 });
 
 
 	adaComputer.loop = true;
 	adaComputer.speed = 0.3f;
-	currentAnimation = &letitiaXeringa;
+	currentAnimation = &planeAnimation;
 
 	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 6, 5 }), Collider::Type::PLAYER, listener);
 
