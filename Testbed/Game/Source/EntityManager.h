@@ -75,6 +75,7 @@ private:
 	SDL_Texture* texPlayer;
 	SDL_Texture* texTarget;
 	SDL_Texture* texGun;
+	SDL_Texture* playerAnimation;
 
 	Entity* playerEntity;
 	Entity* targetEntity;

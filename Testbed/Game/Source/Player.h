@@ -34,6 +34,8 @@ private:
 	Animation planeAnimation;
 	Animation walkAnimationRight;
 	Animation walkAnimationLeft;
+	Animation walkAnimationUp;
+	Animation walkAnimationDown;
 	Animation jumpAnimation;
 
 	Animation* currentAnimation;

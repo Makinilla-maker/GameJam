@@ -87,7 +87,7 @@ bool PlayerEntity::Update(float dt)
 bool PlayerEntity::Draw()
 {
 	SDL_Rect playerRect = currentAnimation->GetCurrentFrame();
-	app->render->DrawTexture(texture, position.x, position.y, &playerRect,0,angle+90);
+	app->render->DrawTexture(texture, position.x, position.y, &playerRect,0,angle);
 
 	return true;
 }

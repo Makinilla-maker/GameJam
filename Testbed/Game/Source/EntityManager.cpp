@@ -28,6 +28,7 @@ bool EntityManager::Start()
 	texPlayer = app->tex->Load("Assets/Textures/allAnims.png");
 	texTarget = app->tex->Load("Assets/Textures/target.png");
 	texGun = app->tex->Load("Assets/Textures/hgranade.png");
+	playerAnimation = app->tex->Load("Assets/Textures/player_sprite.png");
 	
 	playerData.resetCamera = false;
 
@@ -78,7 +79,6 @@ bool EntityManager::PostUpdate()
 		app->render->camera.x = 0;
 		app->render->camera.y = 0;
 		app->render->DrawTexture(playerData.pauseMenu, 0, -20, NULL);
-
 	}
 
 	for (int i = 0; i < entityList.Count(); i++)
@@ -123,7 +123,7 @@ void EntityManager::AddEntity(fPoint position, Entity::Type type)
 		entityList.Add(gunEntity);
 		break;
 	case Entity::Type::PLAYER2:
-		player2Entity = (Entity*)(new Player((Module*)this, position, texGun, type));
+		player2Entity = (Entity*)(new Player((Module*)this, position, playerAnimation, type));
 		entityList.Add(player2Entity);
 		break;
 	}
