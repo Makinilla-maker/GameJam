@@ -116,10 +116,7 @@ void PlayerEntity::Collision(Collider* coll)
 
 	
 }
-
 void PlayerEntity::CleanUp()
 {
 
 }
-
-
