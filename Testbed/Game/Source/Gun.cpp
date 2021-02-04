@@ -24,16 +24,10 @@ Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : E
 			vDestination = { app->entityManager->entityList.At(i+1)->data->position.x - position.x, app->entityManager->entityList.At(i+1)->data->position.y - position.y };
 			modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
 			normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
-			//app->entityManager->entityList.At(0)->data->angle = acos((vDestination.x*0+vDestination.y*1) / ((sqrt(pow(0,2) + pow(1,2))*(sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2))))));
-			//app->entityManager->entityList.At(0)->data->angle = atan(position.x / position.y);
 		}
-		
 	}
 
 	collider = collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 16, 16 }, Collider::Type::GUN, listener);
-
-	
-
 }
 
 bool Gun::Start()
@@ -56,7 +50,7 @@ bool Gun::Draw()
 {
 	SDL_Rect GunRect = currentAnimation->GetCurrentFrame();
 	app->render->DrawTexture(texture, position.x, position.y, &GunRect);
-
+		app->entityManager->entityList.At(0)->data->angle = acos(vDestination.x / modDestination) * (180 / 3.1415);
 	return true;
 }
 
@@ -66,9 +60,7 @@ void Gun::Collision(Collider* coll)
 	{
 		pendingToDelete = true;
 		collider->pendingToDelete = true;
-
 	}
-	
 }
 
 void Gun::CleanUp()
