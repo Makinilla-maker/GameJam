@@ -61,6 +61,12 @@ bool Player::Start()
 
 bool Player::Update(float dt)
 {
+	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_D) == KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_IDLE)
+	{
+		currentAnimation = &planeAnimation;
+	}
 	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && paredarr == false)
 	{
 		position.y -= 1;
