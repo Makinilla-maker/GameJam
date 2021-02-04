@@ -103,3 +103,12 @@ bool Scene::CleanUp()
 	LOG("Freeing scene");
 	return true;
 }
+
+bool Scene::OnGuiMouseClickEvent(GuiControl* control)
+{
+
+
+      
+
+    return true;
+}

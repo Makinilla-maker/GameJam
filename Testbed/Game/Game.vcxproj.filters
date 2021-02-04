@@ -39,6 +39,18 @@
       <Filter>Entities\Non Playable</Filter>
     </ClCompile>
     <ClCompile Include="Source\Timer.cpp" />
+    <ClCompile Include="Source\GuiButton.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiCheckBox.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiManager.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GuiSlider.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -103,6 +115,21 @@
       <Filter>Entities\Non Playable</Filter>
     </ClInclude>
     <ClInclude Include="Source\Timer.h" />
+    <ClInclude Include="Source\GuiButton.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiCheckBox.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiControl.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiManager.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GuiSlider.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -131,6 +158,9 @@
     </Filter>
     <Filter Include="Entities\Non Playable">
       <UniqueIdentifier>{7ad36fe3-5fdb-4088-b3cc-72fd02212c3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{f52c9052-a530-4c6b-9a59-d79e5299538c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

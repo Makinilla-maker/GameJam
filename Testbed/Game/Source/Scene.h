@@ -6,6 +6,8 @@
 #include "Defs.h"
 #include "Timer.h"
 
+class GuiControl;
+
 class Scene : public Module
 {
 public:
@@ -34,6 +36,8 @@ public:
 	bool CleanUp();
 
 	void OnCollision(Collider* a, Collider* b);
+
+	bool OnGuiMouseClickEvent(GuiControl* control);
 
 	bool firstEntry = true;
 
