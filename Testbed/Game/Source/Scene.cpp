@@ -74,10 +74,6 @@ bool Scene::PreUpdate()
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
-	btn1->Update(app->input, dt);
-	btn2->Update(app->input, dt);
-	btn3->Update(app->input, dt);
-
 	int miniGameTime = timer.ReadSec();
 
 	if (miniGameTime == 1)
@@ -86,6 +82,9 @@ bool Scene::Update(float dt)
 		miniGameTime = 0;
 		timer.Start();
 	}
+	btn1->Update(app->input, dt);
+	btn2->Update(app->input, dt);
+	btn3->Update(app->input, dt);
 
 	return true;
 }
