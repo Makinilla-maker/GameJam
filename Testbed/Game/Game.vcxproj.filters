@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Source\Window.cpp" />
+    <ClCompile Include="Source\Textures.cpp" />
+    <ClCompile Include="Source\Render.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Input.cpp" />
+    <ClCompile Include="Source\Audio.cpp" />
+    <ClCompile Include="Source\App.cpp" />
+    <ClCompile Include="Source\Log.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp">
+      <Filter>External\PugiXml</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Collider.cpp" />
+    <ClCompile Include="Source\Collisions.cpp" />
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Scenes\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>Entities\Playable</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EntityManager.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Gun.cpp">
+      <Filter>Entities\Weapons</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Target.cpp">
+      <Filter>Entities\Non Playable</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ModuleFonts.cpp" />
+    <ClCompile Include="Source\Logo.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Win.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Window.h" />
+    <ClInclude Include="Source\Textures.h" />
+    <ClInclude Include="Source\Render.h" />
+    <ClInclude Include="Source\Module.h" />
+    <ClInclude Include="Source\Input.h" />
+    <ClInclude Include="Source\Audio.h" />
+    <ClInclude Include="Source\App.h" />
+    <ClInclude Include="Source\Defs.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DynArray.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\List.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Log.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Point.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SString.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\PugiXml\src\pugiconfig.hpp">
+      <Filter>External\PugiXml</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\External\PugiXml\src\pugixml.hpp">
+      <Filter>External\PugiXml</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Animation.h" />
+    <ClInclude Include="Source\Collider.h" />
+    <ClInclude Include="Source\Collisions.h" />
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Scenes\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\PQueue.h" />
+    <ClInclude Include="Source\Queue.h" />
+    <ClInclude Include="Source\Entity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Player.h">
+      <Filter>Entities\Playable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityManager.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Gun.h">
+      <Filter>Entities\Weapons</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Target.h">
+      <Filter>Entities\Non Playable</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ModuleFonts.h" />
+    <ClInclude Include="Source\Logo.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Win.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="External">
+      <UniqueIdentifier>{83a966c7-b4bb-4eff-9c2c-3ff3c7b55a60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{2cad778a-d356-48b0-9fee-587f1bbb187e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\PugiXml">
+      <UniqueIdentifier>{2855ff7f-53a1-413d-a75b-18b4ade921dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{c3398d21-b93f-4de1-aaab-c0243b2b1187}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes\Levels">
+      <UniqueIdentifier>{ed83c333-685f-4ace-8459-249f6149150a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{73bc44d1-d7c9-4e99-9eaa-9f7be55184ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Playable">
+      <UniqueIdentifier>{6bab73b2-91fe-47e5-b007-719993058f37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Weapons">
+      <UniqueIdentifier>{442fb62b-8ee0-4b48-917e-2d5b27083e57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities\Non Playable">
+      <UniqueIdentifier>{7ad36fe3-5fdb-4088-b3cc-72fd02212c3b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
