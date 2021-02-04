@@ -32,7 +32,7 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 	letitiaXeringa.PushBack({ 0,243, 20, 58 });
 	letitiaXeringa.PushBack({ 64,243, 20, 58 });
 	letitiaXeringa.PushBack({ 128,243, 20, 58 });
-	letitiaXeringa.PushBack({ 0,303, 20, 62 });
+	letitiaXeringa.PushBack({ 0,303, 20, 58 });
 
 
 	letitiaXeringa.loop = true;

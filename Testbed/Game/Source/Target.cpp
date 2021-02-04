@@ -26,7 +26,10 @@ bool Target::Start()
 
 bool Target::Update(float dt)
 {
-	
+	if (position.x > 427)
+	{
+		pendingToDelete = true;
+	}
 	if (goLeft)
 	{
 		position.y += 0;
