@@ -7,6 +7,9 @@
 #include "Scene.h"
 #include "Audio.h"
 #include "EntityManager.h"
+#include "Windows.h"
+#include <time.h>
+
 
 
 
@@ -49,12 +52,13 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 
 bool PlayerEntity::Start()
 {
+
 	return true;
 }
 
 bool PlayerEntity::Update(float dt)
 {
-	/*int miniGameTime = timer.ReadSec();
+	int miniGameTime = timer.ReadSec();
 	if (miniGameTime == 5)
 	{
 		minigame = true;
@@ -62,7 +66,7 @@ bool PlayerEntity::Update(float dt)
 	if (miniGameTime == 25)
 	{
 		minigame = false;
-	}*/
+	}
 	if (!minigame)
 	{
 		int ballTime = timer.ReadSec();
@@ -90,7 +94,7 @@ bool PlayerEntity::Update(float dt)
 	}
 	if (minigame)
 	{
-		app->audio->PlayFx(jumpFx);
+		
 	}
 	return true;
 }

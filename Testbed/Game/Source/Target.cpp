@@ -16,7 +16,7 @@ Target::Target(Module* listener, fPoint position, SDL_Texture* texture, Type typ
 	currentAnimation = &idleAnimation;
 
 	collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 20, 20 }, Collider::Type::TARGET, listener);
-
+	health = 2;
 }
 
 bool Target::Start()
@@ -26,6 +26,15 @@ bool Target::Start()
 
 bool Target::Update(float dt)
 {
+	position.y += 1;
+	collider->SetPos(position.x, position.y);
+	currentAnimation->Update();
+	if (health == 0) 
+	{
+		pendingToDelete = true;
+		collider->pendingToDelete = true;
+	}
+	hit = true;
 	return true;
 }
 
@@ -41,9 +50,11 @@ void Target::Collision(Collider* coll)
 {
 	if (coll->type == Collider::Type::GUN)
 	{
-		pendingToDelete = true;
-		collider->pendingToDelete = true;
-		
+		if (hit == true)
+		{
+			health -= 1;
+			hit = false;
+		}
 	}
 }
 

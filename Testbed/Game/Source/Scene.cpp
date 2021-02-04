@@ -8,7 +8,7 @@
 #include "PlayerEntity.h"
 #include "Collisions.h"
 #include "EntityManager.h"
-
+#include <time.h>
 #include "Defs.h"
 #include "Log.h"
 
@@ -41,13 +41,12 @@ bool Scene::Start()
 	app->entityManager->Start();
 	app->entityManager->AddEntity({217.0f,110.0f}, Entity::Type::PLAYER);
 
-	app->entityManager->AddEntity({ 100.0f,50.0f }, Entity::Type::TARGET);
-	app->entityManager->AddEntity({ 300.0f,50.0f }, Entity::Type::TARGET);
+	
 	
 	waterBckGrnd = app->tex->Load("Assets/Textures/water.png");
 	app->collisions->active = true;
 
-	
+	timer.Start();
 
 	return true;
 }
@@ -61,8 +60,14 @@ bool Scene::PreUpdate()
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
-	
-	
+	int miniGameTime = timer.ReadSec();
+
+	if (miniGameTime == 1) 
+	{
+		app->entityManager->AddEntity({ 100.0f,50.0f }, Entity::Type::TARGET);
+		miniGameTime = 0;
+		timer.Start();
+	}
 	return true;
 }
 
