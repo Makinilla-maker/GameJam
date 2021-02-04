@@ -43,10 +43,11 @@ bool Scene::Start()
 	app->collisions->AddCollider({ 43,235,10,10 }, Collider::Type::TURNRIGHT, this);
 	app->collisions->AddCollider({ 188,235,10,10 }, Collider::Type::GOUP, this);
 	app->collisions->AddCollider({ 168,60,10,10 }, Collider::Type::TURNRIGHT, this);
+
 	app->collisions->AddCollider({ 212,0,10,250 }, Collider::Type::PLAYERWALLLEFT, this);
-	app->collisions->AddCollider({ 424,0,10,250 }, Collider::Type::PLAYERWALLRIGHT, this);
-	app->collisions->AddCollider({ 200,-5,250,10 }, Collider::Type::PLAYERWALLUP, this);
-	app->collisions->AddCollider({ 200, 235,250,10 }, Collider::Type::PLAYERWALLDOWN, this);
+	app->collisions->AddCollider({ 385,0,10,250 }, Collider::Type::PLAYERWALLRIGHT, this);
+	app->collisions->AddCollider({ 200,15,250,10 }, Collider::Type::PLAYERWALLUP, this);
+	app->collisions->AddCollider({ 200, 200,250,10 }, Collider::Type::PLAYERWALLDOWN, this);
 	app->entityManager->Start();
 
 	app->entityManager->AddEntity({90.0f,157.0f}, Entity::Type::PLAYER);
@@ -55,15 +56,15 @@ bool Scene::Start()
 	waterBckGrnd = app->tex->Load("Assets/Textures/water.png");
 	app->collisions->active = true;
 
-	btn1 = new GuiButton(10, { 2, 2, 25, 25 }, "1");
+	btn1 = new GuiButton(10, { 232, 207, 25, 25 }, "1");
 	btn1->SetObserver((Scene*)this);
 	btn1->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
-	btn2 = new GuiButton(10, { 2, 28, 25, 25 }, "2");
+	btn2 = new GuiButton(10, { 290, 207, 25, 25 }, "2");
 	btn2->SetObserver((Scene*)this);
 	btn2->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
-	btn3 = new GuiButton(10, { 2, 54, 25, 25 }, "3");
+	btn3 = new GuiButton(10, { 348, 207, 25, 25 }, "3");
 	btn3->SetObserver((Scene*)this);
 	btn3->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
