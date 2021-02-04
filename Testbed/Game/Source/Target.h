@@ -34,6 +34,10 @@ private:
 	bool isJumping;
 	bool gun = false;
 	bool hit = false;
+	bool goDown = true;
+	bool goUp = false;
+	bool goLeft = false;
+	bool goRight = false;
 };
 
 

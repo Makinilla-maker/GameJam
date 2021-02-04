@@ -14,6 +14,22 @@ Collisions::Collisions(bool startEnabled) : Module()
 	matrix[Collider::Type::GUN][Collider::Type::TARGET] = true;
 	
 	matrix[Collider::Type::TARGET][Collider::Type::GUN] = true;
+
+	matrix[Collider::Type::TARGET][Collider::Type::TURNLEFT] = true;
+
+	matrix[Collider::Type::TURNLEFT][Collider::Type::TARGET] = true;
+
+	matrix[Collider::Type::TARGET][Collider::Type::GODOWN] = true;
+
+	matrix[Collider::Type::GODOWN][Collider::Type::TARGET] = true;
+
+	matrix[Collider::Type::TARGET][Collider::Type::TURNRIGHT] = true;
+
+	matrix[Collider::Type::TURNRIGHT][Collider::Type::TARGET] = true;
+
+	matrix[Collider::Type::TARGET][Collider::Type::GOUP] = true;
+
+	matrix[Collider::Type::GOUP][Collider::Type::TARGET] = true;
 }
 
 // Called before render is available
@@ -171,6 +187,18 @@ void Collisions::DebugDraw()
 			break;
 		case Collider::Type::WIN:
 			app->render->DrawRectangle(colliders[i]->rect, 100, 155, 0, alpha);
+			break;
+		case Collider::Type::TURNLEFT:
+			app->render->DrawRectangle(colliders[i]->rect, 90, 255, 0, alpha);
+			break;
+		case Collider::Type::TURNRIGHT:
+			app->render->DrawRectangle(colliders[i]->rect, 110, 20, 30, alpha);
+			break;
+		case Collider::Type::GOUP:
+			app->render->DrawRectangle(colliders[i]->rect, 255, 255, 0, alpha);
+			break;
+		case Collider::Type::GODOWN:
+			app->render->DrawRectangle(colliders[i]->rect, 130, 10, 255, alpha);
 			break;
 		}
 	}

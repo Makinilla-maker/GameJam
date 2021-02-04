@@ -19,6 +19,10 @@ struct Collider
 		GUN,
 		TARGET,
 		WIN,
+		TURNLEFT,
+		TURNRIGHT,
+		GOUP,
+		GODOWN,
 
 		MAX
 	};

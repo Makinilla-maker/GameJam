@@ -16,7 +16,7 @@ Target::Target(Module* listener, fPoint position, SDL_Texture* texture, Type typ
 	currentAnimation = &idleAnimation;
 
 	collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 20, 20 }, Collider::Type::TARGET, listener);
-	health = 2;
+	health = 3;
 }
 
 bool Target::Start()
@@ -26,7 +26,27 @@ bool Target::Start()
 
 bool Target::Update(float dt)
 {
-	position.y += 1;
+	
+	if (goLeft)
+	{
+		position.y += 0;
+		position.x -= 0.5;
+	}
+	if (goDown)
+	{
+		position.y += 0.5;
+		position.x += 0;
+	}
+	if (goRight)
+	{
+		position.y += 0;
+		position.x += 0.5;
+	}
+	if (goUp)
+	{
+		position.y -= 0.5;
+		position.x += 0;
+	}
 	collider->SetPos(position.x, position.y);
 	currentAnimation->Update();
 	if (health == 0) 
@@ -55,6 +75,34 @@ void Target::Collision(Collider* coll)
 			health -= 1;
 			hit = false;
 		}
+	}
+	if (coll->type == Collider::Type::TURNLEFT)
+	{
+		goLeft = true;
+		goDown = false;
+		goRight = false;
+		goUp = false;
+	}
+	if (coll->type == Collider::Type::GODOWN)
+	{
+		goLeft = false;
+		goDown = true;
+		goRight = false;
+		goUp = false;
+	}
+	if (coll->type == Collider::Type::TURNRIGHT)
+	{
+		goLeft = false;
+		goDown = false;
+		goRight = true;
+		goUp = false;
+	}
+	if (coll->type == Collider::Type::GOUP)
+	{
+		goLeft = false;
+		goDown = false;
+		goRight = false;
+		goUp = true;
 	}
 }
 
