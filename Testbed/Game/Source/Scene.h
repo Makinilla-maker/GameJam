@@ -41,6 +41,9 @@ public:
 	bool OnGuiMouseClickEvent(GuiControl* control);
 
 	bool firstEntry = true;
+	bool amelia = false;
+	bool letitia = false;
+	bool ada = false;
 
 	SDL_Texture* waterBckGrnd;
 

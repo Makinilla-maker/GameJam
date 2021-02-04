@@ -21,7 +21,33 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 
 	planeAnimation.loop = true;
 	planeAnimation.speed = 0.3f;
-	currentAnimation = &planeAnimation;
+
+	letitiaXeringa.PushBack({ 0,179, 20, 58 });
+	letitiaXeringa.PushBack({ 64,179, 20, 58 });
+	letitiaXeringa.PushBack({ 128,179, 20, 58 });
+	letitiaXeringa.PushBack({ 0,243, 20, 58 });
+	letitiaXeringa.PushBack({ 64,243, 20, 58 });
+	letitiaXeringa.PushBack({ 128,243, 20, 58 });
+	letitiaXeringa.PushBack({ 0,303, 20, 62 });
+
+
+	letitiaXeringa.loop = true;
+	letitiaXeringa.speed = 0.15f;
+	
+	adaComputer.PushBack({ 205,0, 57, 56 });
+	adaComputer.PushBack({ 269,0, 57, 56 });
+	adaComputer.PushBack({ 333,0, 57, 56 });
+	adaComputer.PushBack({ 205,64, 57, 56 });
+	adaComputer.PushBack({ 269,64, 57, 56 });
+	adaComputer.PushBack({ 333,64, 57, 56 });
+	adaComputer.PushBack({ 205,127, 57, 56 });
+	adaComputer.PushBack({ 269,127, 57, 56 });
+	adaComputer.PushBack({ 333,127, 57, 56 });
+
+
+	adaComputer.loop = true;
+	adaComputer.speed = 0.3f;
+	currentAnimation = &letitiaXeringa;
 
 	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 6, 5 }), Collider::Type::PLAYER, listener);
 
@@ -77,9 +103,17 @@ bool PlayerEntity::Update(float dt)
 		cameraControl = true;
 		currentAnimation->Update();
 	}
-	if (minigame)
+	if (app->scene->amelia)
 	{
-		
+		currentAnimation = &planeAnimation;
+	}
+	if (app->scene->letitia)
+	{
+		currentAnimation = &letitiaXeringa;
+	}
+	if (app->scene->ada)
+	{
+		currentAnimation = &adaComputer;
 	}
 	return true;
 }

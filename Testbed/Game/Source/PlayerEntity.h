@@ -33,9 +33,9 @@ public:
 private:
 
 	Animation planeAnimation;
-	Animation walkAnimationRight;
-	Animation walkAnimationLeft;
-	Animation jumpAnimation;
+	Animation letitiaXeringa;
+	Animation adaComputer;
+
 
 	Animation* currentAnimation;
 

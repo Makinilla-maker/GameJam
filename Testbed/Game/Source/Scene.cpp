@@ -60,11 +60,11 @@ bool Scene::Start()
 	btn1->SetObserver((Scene*)this);
 	btn1->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
-	btn2 = new GuiButton(10, { 290, 207, 25, 25 }, "2");
+	btn2 = new GuiButton(11, { 290, 207, 25, 25 }, "2");
 	btn2->SetObserver((Scene*)this);
 	btn2->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
-	btn3 = new GuiButton(10, { 348, 207, 25, 25 }, "3");
+	btn3 = new GuiButton(12, { 348, 207, 25, 25 }, "3");
 	btn3->SetObserver((Scene*)this);
 	btn3->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
 
@@ -131,5 +131,29 @@ bool Scene::CleanUp()
 
 bool Scene::OnGuiMouseClickEvent(GuiControl* control)
 {
+	switch (control->type)
+	{
+	case GuiControlType::BUTTON:
+	{
+		if (control->id == 10 && amelia == false)
+		{
+			amelia = true;
+			letitia = false;
+			ada = false;
+		}
+		if (control->id == 11 && letitia == false)
+		{
+			letitia = true;
+			amelia = false;
+			ada = false;
+		}
+		if (control->id == 12 && ada == false)
+		{
+			letitia = false;
+			amelia = false;
+			ada = true;
+		}
+	}
+	}
     return true;
 }
