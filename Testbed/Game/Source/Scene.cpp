@@ -11,6 +11,7 @@
 #include <time.h>
 #include "Defs.h"
 #include "Log.h"
+#include "GuiButton.h"
 
 Scene::Scene() : Module()
 {
@@ -44,8 +45,19 @@ bool Scene::Start()
 	app->collisions->AddCollider({ 168,60,10,10 }, Collider::Type::TURNRIGHT, this);
 	app->entityManager->Start();
 	app->entityManager->AddEntity({217.0f,110.0f}, Entity::Type::PLAYER);
-		
-	waterBckGrnd = app->tex->Load("Assets/Textures/water.png");
+	
+	btn1 = new GuiButton(10, { 60, 29, 78, 23 }, "1");
+	btn1->SetObserver((Scene*)this);
+	btn1->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
+
+	btn2 = new GuiButton(10, { 60, 29, 78, 23 }, "2");
+	btn2->SetObserver((Scene*)this);
+	btn2->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
+
+	btn3 = new GuiButton(10, { 60, 29, 78, 23 }, "3");
+	btn3->SetObserver((Scene*)this);
+	btn3->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
+
 	app->collisions->active = true;
 
 	timer.Start();
@@ -70,6 +82,9 @@ bool Scene::Update(float dt)
 		miniGameTime = 0;
 		timer.Start();
 	}
+	btn1->Update(app->input, dt);
+	btn2->Update(app->input, dt);
+	btn3->Update(app->input, dt);
 	return true;
 }
 
@@ -84,6 +99,10 @@ bool Scene::PostUpdate()
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) app->collisions->debug = !app->collisions->debug;
 	
 	app->render->DrawTexture(bckground, 0, 0, NULL);
+
+	btn1->Draw(app->render);
+	btn2->Draw(app->render);
+	btn3->Draw(app->render);
 
 	return ret;
 }

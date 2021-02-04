@@ -7,6 +7,7 @@
 #include "Timer.h"
 
 class GuiControl;
+class GuiButton;
 
 class Scene : public Module
 {
@@ -42,6 +43,10 @@ public:
 	bool firstEntry = true;
 
 	SDL_Texture* waterBckGrnd;
+
+	GuiButton* btn1;
+	GuiButton* btn2;
+	GuiButton* btn3;
 
 private:
 
