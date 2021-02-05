@@ -63,7 +63,9 @@ bool Player::Update(float dt)
 {
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_D) == KEY_IDLE
-		&& app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_IDLE)
+		&& app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_S) == KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_W) == KEY_IDLE)
 	{
 		currentAnimation = &planeAnimation;
 	}

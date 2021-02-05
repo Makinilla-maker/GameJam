@@ -63,11 +63,11 @@ bool Scene::Start()
 
 	btn2 = new GuiButton(11, { 290, 207, 25, 25 }, "2");
 	btn2->SetObserver((Scene*)this);
-	btn2->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
+	btn2->SetTexture(app->tex->Load("Assets/Textures/button21.png"), app->tex->Load("Assets/Textures/button22.png"), app->tex->Load("Assets/Textures/button23.png"));
 
 	btn3 = new GuiButton(12, { 348, 207, 25, 25 }, "3");
 	btn3->SetObserver((Scene*)this);
-	btn3->SetTexture(app->tex->Load("Assets/Textures/button1.png"), app->tex->Load("Assets/Textures/button2.png"), app->tex->Load("Assets/Textures/button3.png"));
+	btn3->SetTexture(app->tex->Load("Assets/Textures/button31.png"), app->tex->Load("Assets/Textures/button32.png"), app->tex->Load("Assets/Textures/button33.png"));
 
 	return true;
 }
