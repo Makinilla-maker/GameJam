@@ -8,6 +8,7 @@ Juego realizado para la GameJam por los ODS! De temática vocación femenina por
  - WASD - Controles de movimiento.
  - Space Bar - Saltar la escena correspondiente.
  - Click Izquierdo - Upgradear la torre.
+ - Esc - Salir del Juego.
 
 También soporta una Key para debugar!
 - F1 - Observación de los Colliders.
