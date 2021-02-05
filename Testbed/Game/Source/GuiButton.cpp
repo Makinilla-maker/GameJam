@@ -70,7 +70,7 @@ bool GuiButton::Draw(Render* render)
             if (audio == false)
             {
                 audio = true;
-                app->audio->PlayFx(buttonFx);
+                //app->audio->PlayFx(buttonFx);
             }
             break;
         case GuiControlState::PRESSED:

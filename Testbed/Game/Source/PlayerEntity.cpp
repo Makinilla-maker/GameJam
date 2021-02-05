@@ -85,13 +85,90 @@ bool PlayerEntity::Update(float dt)
 	}
 	if (!minigame)
 	{
-		int ballTime = timer.ReadSec();
-		if (ballTime == 1 && app->entityManager->entityList.Count() > 1)
+		int ballTime = timer.Read();
+		if (rapidfire == false && app->entityManager->powerfire == false && doubleshot == false)
 		{
-			app->entityManager->AddEntity({ position.x+20, position.y+20 }, Entity::Type::GUN);
-			ballTime = 0;
-			timer.Start();
+			if (ballTime > 1000 && app->entityManager->entityList.Count() > 1)
+			{
+				app->entityManager->AddEntity({ position.x + 20, position.y + 20 }, Entity::Type::GUN);
+				ballTime = 0;
+				timer.Start();
 
+			}
+		}
+		if (rapidfire == true && app->entityManager->powerfire == false && doubleshot == false)
+		{
+			if (ballTime > 500 && app->entityManager->entityList.Count() > 1)
+			{
+				app->entityManager->AddEntity({ position.x + 20, position.y + 20 }, Entity::Type::GUN);
+				ballTime = 0;
+				timer.Start();
+
+			}
+		}
+		if (rapidfire == false && app->entityManager->powerfire == true && doubleshot == false)
+		{
+			if (ballTime > 1000 && app->entityManager->entityList.Count() > 1)
+			{
+				app->entityManager->AddEntity({ position.x + 20, position.y + 20 }, Entity::Type::GUN);
+				ballTime = 0;
+				timer.Start();
+
+			} 
+		}
+		if (rapidfire == false && app->entityManager->powerfire == false && doubleshot == true)
+		{
+			if (ballTime > 1000 && app->entityManager->entityList.Count() > 1)
+			{
+				app->entityManager->AddEntity({ position.x + 20, position.y + 20 }, Entity::Type::GUN);
+				app->entityManager->AddEntity({ position.x + 40, position.y + 20 }, Entity::Type::GUN);
+				ballTime = 0;
+				timer.Start();
+
+			}
+		}
+		if (rapidfire == true && app->entityManager->powerfire == false && doubleshot == true)
+		{
+			if (ballTime > 750 && app->entityManager->entityList.Count() > 1)
+			{
+				app->entityManager->AddEntity({ position.x + 20, position.y + 20 }, Entity::Type::GUN);
+				app->entityManager->AddEntity({ position.x + 40, position.y + 20 }, Entity::Type::GUN);
+				ballTime = 0;
+				timer.Start();
+
+			}
+		}
+		if (rapidfire == true && app->entityManager->powerfire == true && doubleshot == true)
+		{
+			if (ballTime > 750 && app->entityManager->entityList.Count() > 1)
+			{
+				app->entityManager->AddEntity({ position.x + 20, position.y + 20 }, Entity::Type::GUN);
+				app->entityManager->AddEntity({ position.x + 40, position.y + 20 }, Entity::Type::GUN);
+				ballTime = 0;
+				timer.Start();
+
+			}
+		}
+		if (rapidfire == true && app->entityManager->powerfire == true && doubleshot == false)
+		{
+			if (ballTime > 750 && app->entityManager->entityList.Count() > 1)
+			{
+				app->entityManager->AddEntity({ position.x + 20, position.y + 20 }, Entity::Type::GUN);
+				ballTime = 0;
+				timer.Start();
+
+			}
+		}
+		if (rapidfire == false && app->entityManager->powerfire == true && doubleshot == true)
+		{
+			if (ballTime > 1000 && app->entityManager->entityList.Count() > 1)
+			{
+				app->entityManager->AddEntity({ position.x + 20, position.y + 20 }, Entity::Type::GUN);
+				app->entityManager->AddEntity({ position.x + 40, position.y + 20 }, Entity::Type::GUN);
+				ballTime = 0;
+				timer.Start();
+
+			}
 		}
 		if (app->input->GetKey(SDL_SCANCODE_F9) == KEY_DOWN)
 		{
@@ -111,6 +188,7 @@ bool PlayerEntity::Update(float dt)
 	{
 		if (app->scene->change1)
 		{
+			rapidfire = true;
 			app->scene->moneyCont -= 10;
 			currentAnimation = &planeAnimation;
 		}
@@ -119,6 +197,7 @@ bool PlayerEntity::Update(float dt)
 	{
 		if (app->scene->change2)
 		{
+			app->entityManager->powerfire = true;
 			app->scene->moneyCont -= 20;
 			currentAnimation = &letitiaXeringa;
 		}
@@ -127,6 +206,7 @@ bool PlayerEntity::Update(float dt)
 	{
 		if (app->scene->change3)
 		{
+			doubleshot = true;
 			app->scene->moneyCont -= 30;
 			currentAnimation = &adaComputer;
 		}

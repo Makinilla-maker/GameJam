@@ -67,7 +67,7 @@ bool Target::Update(float dt)
 	}
 	collider->SetPos(position.x, position.y);
 	currentAnimation->Update();
-	if (health == 0) 
+	if (health <= 0) 
 	{
 		pendingToDelete = true;
 		collider->pendingToDelete = true;
@@ -88,9 +88,14 @@ void Target::Collision(Collider* coll)
 {
 	if (coll->type == Collider::Type::GUN)
 	{
-		if (hit == true)
+		if (hit == true && app->entityManager->powerfire == false)
 		{
 			health -= 1;
+			hit = false;
+		}
+		if (hit == true && app->entityManager->powerfire == true)
+		{
+			health -= 2;
 			hit = false;
 		}
 	}

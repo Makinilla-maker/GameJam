@@ -64,6 +64,8 @@ private:
 	bool deathCondition = false;
 	bool advice;
 	bool minigame;
+	bool rapidfire = false;
+	bool doubleshot = false;
 
 	int scoreFont = -1;
 	char scoreText[10] = { "\0" };
