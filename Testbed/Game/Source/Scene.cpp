@@ -73,6 +73,8 @@ bool Scene::Start()
 	btn3->SetObserver((Scene*)this);
 	btn3->SetTexture(app->tex->Load("Assets/Textures/button31.png"), app->tex->Load("Assets/Textures/button32.png"), app->tex->Load("Assets/Textures/button33.png"));
 
+	moneyCont = 0;
+	timeToSpawn = 1.0f;
 	lives = 3;
 
 	return true;
@@ -88,13 +90,29 @@ bool Scene::PreUpdate()
 bool Scene::Update(float dt)
 {
 	int miniGameTime = timer.ReadSec();
+	float miniGameTime2 = timer2.ReadSec();
 
-	if (miniGameTime > 1)
+	if (!amelia && !letitia && !ada)
 	{
-		app->entityManager->AddEntity({ 110.0f,0.0f }, Entity::Type::TARGET);
-		miniGameTime = 0;
-		timer.Start();
+		if (miniGameTime > timeToSpawn)
+		{
+			app->entityManager->AddEntity({ 110.0f,0.0f }, Entity::Type::TARGET);
+			miniGameTime = 0;
+			timer.Start();
+		}
 	}
+	if (amelia && !letitia && !ada)
+	{
+		timeToSpawn = 0.01f;
+		if (miniGameTime > timeToSpawn)
+		{
+			app->entityManager->AddEntity({ 110.0f,0.0f }, Entity::Type::TARGET);
+			miniGameTime = 0;
+			timer.Start();
+		}
+	}
+	
+
 	
 	btn1->Update(app->input, dt);
 	btn2->Update(app->input, dt);

@@ -22,7 +22,7 @@ Target::Target(Module* listener, fPoint position, SDL_Texture* texture, Type typ
 	currentAnimation = &idleAnimation;
 
 	collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 20, 20 }, Collider::Type::TARGET, listener);
-	health = 3;
+	health = 5;
 }
 
 bool Target::Start()

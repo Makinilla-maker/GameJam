@@ -35,6 +35,7 @@ private:
 	Animation planeAnimation;
 	Animation letitiaXeringa;
 	Animation adaComputer;
+	Animation towerAnimation;
 
 
 	Animation* currentAnimation;

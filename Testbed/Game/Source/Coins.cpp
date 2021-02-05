@@ -55,7 +55,6 @@ void Coins::Collision(Collider* coll)
 	if (collected)
 	{
 		app->scene->moneyCont++;
-		printf("Coins: %d", app->scene->moneyCont);
 	}
 }
 

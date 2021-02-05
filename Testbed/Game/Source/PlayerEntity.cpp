@@ -34,6 +34,10 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 	letitiaXeringa.PushBack({ 128,243, 20, 58 });
 	letitiaXeringa.PushBack({ 0,303, 20, 58 });
 
+	towerAnimation.PushBack({ 203,194, 56, 55 });
+
+	towerAnimation.loop = true;
+	towerAnimation.speed = 0.15f;
 
 	letitiaXeringa.loop = true;
 	letitiaXeringa.speed = 0.120f;
@@ -51,7 +55,7 @@ PlayerEntity::PlayerEntity(Module* listener, fPoint position, SDL_Texture* textu
 
 	adaComputer.loop = true;
 	adaComputer.speed = 0.3f;
-	currentAnimation = &planeAnimation;
+	currentAnimation = &towerAnimation;
 
 	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 6, 5 }), Collider::Type::PLAYER, listener);
 
@@ -216,40 +220,48 @@ bool PlayerEntity::Update(float dt)
 
 bool PlayerEntity::Draw()
 {
+	
 	SDL_Rect playerRect = currentAnimation->GetCurrentFrame();
-
-	fPoint vDestination = { 0,0 };
-	float modDestination = 0;
-	fPoint normDestination = { 0,0 };
-
-	fPoint pos = { 0,0 };
-	if (collider != nullptr)
+	if (currentAnimation != &towerAnimation)
 	{
-		SDL_Rect r = { 3 * position.x,3 * position.y,3 * 53,3 * 52 };
-		pos = { float(r.x + (r.w / 2)), float(r.y + (r.h / 2)) };
-	}
+		fPoint vDestination = { 0,0 };
+		float modDestination = 0;
+		fPoint normDestination = { 0,0 };
 
-	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
-	{
-		if (app->entityManager->entityList.At(i + 2) != nullptr)
+		fPoint pos = { 0,0 };
+		if (collider != nullptr)
 		{
-			vDestination = { 3 * app->entityManager->entityList.At(i + 2)->data->position.x - pos.x, 3 * app->entityManager->entityList.At(i + 2)->data->position.y - pos.y };
-			modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
-			normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
+			SDL_Rect r = { 3 * position.x,3 * position.y,3 * 53,3 * 52 };
+			pos = { float(r.x + (r.w / 2)), float(r.y + (r.h / 2)) };
 		}
-	}
-	float ang = -atan(vDestination.x / vDestination.y) * (180 / 3.1415);
 
-	if (vDestination.y < 1)
-	{
-		app->entityManager->entityList.At(0)->data->angle = ang;
+		for (int i = app->entityManager->entityList.Count(); i > 0; i--)
+		{
+			if (app->entityManager->entityList.At(i + 2) != nullptr)
+			{
+				vDestination = { 3 * app->entityManager->entityList.At(i + 2)->data->position.x - pos.x, 3 * app->entityManager->entityList.At(i + 2)->data->position.y - pos.y };
+				modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
+				normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
+			}
+		}
+		float ang = -atan(vDestination.x / vDestination.y) * (180 / 3.1415);
+
+		if (vDestination.y < 1)
+		{
+			app->entityManager->entityList.At(0)->data->angle = ang;
+		}
+		else
+		{
+			app->entityManager->entityList.At(0)->data->angle = ang + 180;
+		}
+		app->render->DrawTexture(texture, position.x, position.y, &playerRect, 0, angle);
 	}
 	else
 	{
-		app->entityManager->entityList.At(0)->data->angle = ang + 180;
+		app->render->DrawTexture(texture, position.x, position.y, &playerRect, 0, 0);
 	}
-
-	app->render->DrawTexture(texture, position.x, position.y, &playerRect, 0, angle);
+	
+	
 
 	return true;
 }

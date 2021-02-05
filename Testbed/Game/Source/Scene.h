@@ -67,6 +67,9 @@ private:
 	SDL_Texture* bckground;
 	SDL_Texture* livesText;
 	Timer timer;
+	Timer timer2;
+
+	float timeToSpawn = 1.0f;
 
 	bool collision = false;
 };
