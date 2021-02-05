@@ -12,6 +12,7 @@
 #include "EntityManager.h"
 #include "Font.h"
 #include "DeathCondition.h"
+#include "Tutorial.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -34,6 +35,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	winCondition = new Win();
 	collisions = new Collisions(false);
 	deathCondition = new DeathCondition();
+	tutorial = new Tutorial();
 
 	AddModule(input);
 	AddModule(win);
@@ -44,6 +46,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(winCondition);
 	AddModule(entityManager);
 	AddModule(deathCondition);
+	AddModule(tutorial);
 
 	// Render last to swap buffer
 
@@ -54,6 +57,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	scene->active = false;
 	winCondition->active = false;
 	deathCondition->active = false;
+	tutorial->active = false;
 }
 
 App::~App()

@@ -112,6 +112,7 @@
     <ClCompile Include="Source\Target.cpp" />
     <ClCompile Include="Source\Textures.cpp" />
     <ClCompile Include="Source\Timer.cpp" />
+    <ClCompile Include="Source\Tutorial.cpp" />
     <ClCompile Include="Source\Win.cpp" />
     <ClCompile Include="Source\Window.cpp" />
     <ClInclude Include="Source\Animation.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Source\Target.h" />
     <ClInclude Include="Source\Textures.h" />
     <ClInclude Include="Source\Timer.h" />
+    <ClInclude Include="Source\Tutorial.h" />
     <ClInclude Include="Source\Win.h" />
     <ClInclude Include="Source\Window.h" />
     <ClInclude Include="Source\Defs.h" />

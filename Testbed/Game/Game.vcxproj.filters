@@ -60,6 +60,9 @@
     <ClCompile Include="Source\DeathCondition.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Tutorial.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -146,6 +149,9 @@
     </ClInclude>
     <ClInclude Include="Source\Font.h" />
     <ClInclude Include="Source\DeathCondition.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tutorial.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
