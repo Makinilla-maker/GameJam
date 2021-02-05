@@ -29,7 +29,9 @@ public:
 private:
 
 	Animation* currentAnimation;
-	Animation rightAnimation;
+	Animation bulet1;
+	Animation bulet2;
+	Animation bulet3;
 
 	SDL_Texture* tex;
 

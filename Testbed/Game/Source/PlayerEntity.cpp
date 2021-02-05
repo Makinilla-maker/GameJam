@@ -226,9 +226,9 @@ bool PlayerEntity::Draw()
 	fPoint normDestination = { 0,0 };
 
 	fPoint pos = { 0,0 };
-	if (collider!=nullptr)
+	if (collider != nullptr)
 	{
-		SDL_Rect r = { 3*position.x,3*position.y,3*53,3*52 };
+		SDL_Rect r = { 3 * position.x,3 * position.y,3 * 53,3 * 52 };
 		pos = { float(r.x + (r.w / 2)), float(r.y + (r.h / 2)) };
 	}
 
@@ -236,19 +236,20 @@ bool PlayerEntity::Draw()
 	{
 		if (app->entityManager->entityList.At(i + 2) != nullptr)
 		{
-			vDestination = { app->entityManager->entityList.At(i + 2)->data->position.x - pos.x, app->entityManager->entityList.At(i + 2)->data->position.y - pos.y };
+			vDestination = { 3 * app->entityManager->entityList.At(i + 2)->data->position.x - pos.x, 3 * app->entityManager->entityList.At(i + 2)->data->position.y - pos.y };
 			modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
 			normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
 		}
 	}
-	
-	if (vDestination.y < 3 * pos.y)
+	float ang = -atan(vDestination.x / vDestination.y) * (180 / 3.1415);
+
+	if (vDestination.y < 1)
 	{
-		app->entityManager->entityList.At(0)->data->angle = asin(vDestination.x / modDestination) * (180 / 3.1415);
+		app->entityManager->entityList.At(0)->data->angle = ang;
 	}
 	else
 	{
-		app->entityManager->entityList.At(0)->data->angle = acos(vDestination.y / modDestination) * (180 / 3.1415);
+		app->entityManager->entityList.At(0)->data->angle = ang + 180;
 	}
 
 	app->render->DrawTexture(texture, position.x, position.y, &playerRect, 0, angle);

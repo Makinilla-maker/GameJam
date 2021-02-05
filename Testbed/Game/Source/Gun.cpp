@@ -7,16 +7,25 @@
 #include "Collider.h"
 #include "Audio.h"
 #include "EntityManager.h"
+#include "Scene.h"
 #include "Log.h"
 
 Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
 
-	rightAnimation.loop = true;
-	rightAnimation.PushBack({ 0, 0, 16, 23 });
-	rightAnimation.speed = 0.1f;
+	bulet1.loop = true;
+	bulet1.PushBack({ 0, 3, 16, 18 });
+	bulet1.speed = 0.1f;
 
-	currentAnimation = &rightAnimation;
+	bulet2.loop = true;
+	bulet2.PushBack({ 0, 22, 16, 18 });
+	bulet2.speed = 0.1f;
+
+	bulet3.loop = true;
+	bulet3.PushBack({ 0, 40, 16, 18 });
+	bulet3.speed = 0.1f;
+
+	currentAnimation = &bulet1;
 	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
 	{
 		if(app->entityManager->entityList.At(i+2) != nullptr)
@@ -37,6 +46,28 @@ bool Gun::Start()
 
 bool Gun::Update(float dt)
 {
+
+	if (app->scene->amelia && app->scene->moneyCont >= 10)
+	{
+		if (app->scene->change1)
+		{
+			currentAnimation = &bulet1;
+		}
+	}
+	if (app->scene->letitia && app->scene->moneyCont >= 20)
+	{
+		if (app->scene->change2)
+		{
+			currentAnimation = &bulet2;
+		}
+	}
+	if (app->scene->ada && app->scene->moneyCont >= 30)
+	{
+		if (app->scene->change3)
+		{
+			currentAnimation = &bulet3;
+		}
+	}
 	
 	position.x += normDestination.x * 10.0f;
 	position.y += normDestination.y * 10.0f;

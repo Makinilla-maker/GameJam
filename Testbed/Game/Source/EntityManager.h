@@ -75,7 +75,9 @@ private:
 
 	SDL_Texture* texPlayer;
 	SDL_Texture* texTarget;
-	SDL_Texture* texGun;
+	SDL_Texture* texGun1;
+	SDL_Texture* texGun2;
+	SDL_Texture* texGun3;
 	SDL_Texture* playerAnimation;
 	SDL_Texture* coinAnimation;
 

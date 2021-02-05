@@ -27,7 +27,9 @@ bool EntityManager::Start()
 {
 	texPlayer = app->tex->Load("Assets/Textures/allAnims.png");
 	texTarget = app->tex->Load("Assets/Textures/target.png");
-	texGun = app->tex->Load("Assets/Textures/hgranade.png");
+	texGun1= app->tex->Load("Assets/Textures/bala1.png");
+	texGun2 = app->tex->Load("Assets/Textures/hgranade.png");
+	texGun3 = app->tex->Load("Assets/Textures/hgranade.png");
 	playerAnimation = app->tex->Load("Assets/Textures/player_sprite.png");
 	coinAnimation = app->tex->Load("Assets/Textures/coin.png");
 	
@@ -119,7 +121,7 @@ void EntityManager::AddEntity(fPoint position, Entity::Type type)
 		entityList.Add(targetEntity);
 		break;
 	case Entity::Type::GUN:
-		gunEntity = (Entity*)(new Gun((Module*)this, position, texGun, type));
+		gunEntity = (Entity*)(new Gun((Module*)this, position, texGun1, type));
 		entityList.Add(gunEntity);
 		break;
 	case Entity::Type::PLAYER2:
