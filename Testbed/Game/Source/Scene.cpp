@@ -138,6 +138,10 @@ bool Scene::PostUpdate()
 		app->deathCondition->Start();
 	}
 
+	app->render->DrawText(app->render->fonts, "10 Coins", 690, 700, 20, 5, { 0, 0, 0, 0 });
+	app->render->DrawText(app->render->fonts, "20 Coins", 860, 700, 20, 5, { 0, 0, 0, 0 });
+	app->render->DrawText(app->render->fonts, "30 Coins", 1030, 700, 20, 5, { 0, 0, 0, 0 });
+
 	return ret;
 }
 void Scene::OnCollision(Collider* a, Collider* b)

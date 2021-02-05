@@ -25,11 +25,11 @@ Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : E
 	bullet3.PushBack({ 0, 40, 16, 18 });
 	bullet3.speed = 0.1f;
 
-	currentAnimation = &bulet1;
+	currentAnimation = &bullet1;
 
-	if (app->scene->change1)	currentAnimation = &bulet1;
-	if (app->scene->change2)	currentAnimation = &bulet3;
-	if (app->scene->change3)	currentAnimation = &bulet2;
+	if (app->scene->change1)	currentAnimation = &bullet1;
+	if (app->scene->change2)	currentAnimation = &bullet3;
+	if (app->scene->change3)	currentAnimation = &bullet2;
 	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
 	{
 		if(app->entityManager->entityList.At(i+2) != nullptr)
@@ -56,7 +56,7 @@ bool Gun::Update(float dt)
 		
 		if (app->scene->change1)
 		{
-			currentAnimation = &bulet1;
+			currentAnimation = &bullet1;
 			stopu = true;
 		}
 	}
@@ -69,7 +69,7 @@ bool Gun::Update(float dt)
 			if (app->scene->change2)
 			{
 				app->scene->moneyCont -= 20;
-				currentAnimation = &bulet2;
+				currentAnimation = &bullet2;
 				stopu = true;
 			}
 		}
@@ -80,7 +80,7 @@ bool Gun::Update(float dt)
 		if (app->scene->change3)
 		{
 			app->scene->moneyCont -= 30;
-			currentAnimation = &bulet3;
+			currentAnimation = &bullet3;
 			stopu = true;
 		}
 	}
