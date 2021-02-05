@@ -13,17 +13,17 @@
 Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
 
-	bulet1.loop = true;
-	bulet1.PushBack({ 0, 3, 16, 18 });
-	bulet1.speed = 0.1f;
+	bullet1.loop = true;
+	bullet1.PushBack({ 0, 3, 16, 18 });
+	bullet1.speed = 0.1f;
 
-	bulet2.loop = true;
-	bulet2.PushBack({ 0, 22, 16, 18 });
-	bulet2.speed = 0.1f;
+	bullet2.loop = true;
+	bullet2.PushBack({ 0, 22, 16, 18 });
+	bullet2.speed = 0.1f;
 
-	bulet3.loop = true;
-	bulet3.PushBack({ 0, 40, 16, 18 });
-	bulet3.speed = 0.1f;
+	bullet3.loop = true;
+	bullet3.PushBack({ 0, 40, 16, 18 });
+	bullet3.speed = 0.1f;
 
 	currentAnimation = &bulet1;
 	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
