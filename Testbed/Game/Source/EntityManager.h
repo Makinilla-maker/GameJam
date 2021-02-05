@@ -76,6 +76,7 @@ private:
 	SDL_Texture* texTarget;
 	SDL_Texture* texGun;
 	SDL_Texture* playerAnimation;
+	SDL_Texture* coinAnimation;
 
 	Entity* playerEntity;
 	Entity* targetEntity;

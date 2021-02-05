@@ -46,6 +46,12 @@ void Coins::Collision(Collider* coll)
 	{
 		position.x = rand() % 140 + 200;
 		position.y = rand() % 170 + 26;
+		collected = !collected;
+	}
+	if (collected)
+	{
+		moneyCont++;
+		printf("COins: %d", moneyCont);
 	}
 }
 

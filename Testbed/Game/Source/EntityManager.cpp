@@ -29,6 +29,7 @@ bool EntityManager::Start()
 	texTarget = app->tex->Load("Assets/Textures/target.png");
 	texGun = app->tex->Load("Assets/Textures/hgranade.png");
 	playerAnimation = app->tex->Load("Assets/Textures/player_sprite.png");
+	coinAnimation = app->tex->Load("Assets/Textures/coin.png");
 	
 	playerData.resetCamera = false;
 
@@ -109,7 +110,6 @@ void EntityManager::AddEntity(fPoint position, Entity::Type type)
 {
 	switch (type)
 	{
-	
 	case Entity::Type::PLAYER:
 		playerEntity = (Entity*)(new PlayerEntity((Module*)this, position, texPlayer, type));
 		entityList.Add(playerEntity);
@@ -127,12 +127,10 @@ void EntityManager::AddEntity(fPoint position, Entity::Type type)
 		entityList.Add(player2Entity);
 		break;
 	case Entity::Type::COINS:
-		coins = (Entity*)(new Coins((Module*)this, position, texTarget, type));
+		coins = (Entity*)(new Coins((Module*)this, position, coinAnimation, type));
 		entityList.Add(coins);
 		break;
 	}
-
-
 }
 
 void EntityManager::OnCollision(Collider* a, Collider* b)
