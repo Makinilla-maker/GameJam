@@ -57,6 +57,9 @@
       <Filter>Entities\Non Playable</Filter>
     </ClCompile>
     <ClCompile Include="Source\Font.cpp" />
+    <ClCompile Include="Source\DeathCondition.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -142,6 +145,9 @@
       <Filter>Entities\Non Playable</Filter>
     </ClInclude>
     <ClInclude Include="Source\Font.h" />
+    <ClInclude Include="Source\DeathCondition.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

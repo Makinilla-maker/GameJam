@@ -12,6 +12,7 @@
 #include "Defs.h"
 #include "Log.h"
 #include "GuiButton.h"
+#include "DeathCondition.h"
 
 Scene::Scene() : Module()
 {
@@ -72,6 +73,8 @@ bool Scene::Start()
 	btn3->SetObserver((Scene*)this);
 	btn3->SetTexture(app->tex->Load("Assets/Textures/button31.png"), app->tex->Load("Assets/Textures/button32.png"), app->tex->Load("Assets/Textures/button33.png"));
 
+	lives = 3;
+
 	return true;
 }
 
@@ -129,6 +132,12 @@ bool Scene::PostUpdate()
 		app->render->DrawText(app->render->fonts, "1ra aviadora en atravesar el atlantico", 400, 50, 50, 5, { 0, 0, 0, 0 });
 	}
 
+	if (lives <= 0)
+	{
+		CleanUp();
+		app->deathCondition->Start();
+	}
+
 	return ret;
 }
 void Scene::OnCollision(Collider* a, Collider* b)
@@ -143,6 +152,7 @@ bool Scene::CleanUp()
 	app->entityManager->CleanUp();
 	app->scene->active = false;
 	app->collisions->CleanUp();
+	
 
 	LOG("Freeing scene");
 	return true;

@@ -17,6 +17,7 @@ class Logo;
 class Win;
 class EntityManager;
 class Collisions;
+class DeathCondition;
 
 class App
 {
@@ -82,6 +83,7 @@ public:
 	Win* winCondition;
 	EntityManager* entityManager;
 	Collisions* collisions;
+	DeathCondition* deathCondition;
 
 	uint activeFonts = 0;
 	uint totalFonts = 0;
