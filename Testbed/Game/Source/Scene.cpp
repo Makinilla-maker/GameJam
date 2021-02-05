@@ -117,7 +117,7 @@ bool Scene::PostUpdate()
 
 	if (amelia == true & (x > 239 && x < 257 && y>207 && y < 232))
 	{
-		app->render->DrawText(app->render->fonts, "1ra aviadora en travesar el atlantico", 400, 50, 50, 5, { 0, 0, 0, 0 });
+		app->render->DrawText(app->render->fonts, "1ra aviadora en atravesar el atlantico", 400, 50, 50, 5, { 0, 0, 0, 0 });
 	}
 
 	return ret;
