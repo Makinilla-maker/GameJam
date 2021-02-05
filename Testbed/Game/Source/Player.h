@@ -29,6 +29,8 @@ public:
 
 	void CleanUp();
 
+	bool minusLives = false;
+
 private:
 
 	Animation planeAnimation;

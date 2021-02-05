@@ -23,6 +23,9 @@ Collisions::Collisions(bool startEnabled) : Module()
 	matrix[Collider::Type::PLAYER][Collider::Type::PLAYERWALLDOWN] = true;
 	matrix[Collider::Type::PLAYERWALLDOWN][Collider::Type::PLAYER] = true;
 
+	matrix[Collider::Type::PLAYER][Collider::Type::TARGET] = true;
+	matrix[Collider::Type::TARGET][Collider::Type::PLAYER] = true;
+
 	matrix[Collider::Type::TARGET][Collider::Type::PLAYERWALLDOWN] = true;
 	matrix[Collider::Type::TARGET][Collider::Type::PLAYERWALLRIGHT] = true;
 	matrix[Collider::Type::TARGET][Collider::Type::PLAYERWALLUP] = true;

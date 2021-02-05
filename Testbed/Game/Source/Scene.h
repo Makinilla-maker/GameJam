@@ -56,6 +56,8 @@ public:
 	bool minus3 = false;
 	SDL_Texture* waterBckGrnd;
 
+	int lives = 3;
+
 	GuiButton* btn1;
 	GuiButton* btn2;
 	GuiButton* btn3;
@@ -63,6 +65,7 @@ public:
 private:
 
 	SDL_Texture* bckground;
+	SDL_Texture* livesText;
 	Timer timer;
 
 	bool collision = false;

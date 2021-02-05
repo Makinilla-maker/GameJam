@@ -37,6 +37,7 @@ bool Scene::Start()
 {
 	active = true;
 	bckground = app->tex->Load("Assets/Textures/background.png");
+	livesText = app->tex->Load("Assets/Textures/heart.png");
 
 	app->collisions->AddCollider({ 120,145,10,10 }, Collider::Type::TURNLEFT, this);
 	app->collisions->AddCollider({ 43,145,10,10 }, Collider::Type::GODOWN, this);
@@ -113,6 +114,11 @@ bool Scene::PostUpdate()
 	btn1->Draw(app->render);
 	btn2->Draw(app->render);
 	btn3->Draw(app->render);
+
+	for (int i = 0; i < lives; i++)
+	{
+		app->render->DrawTexture(livesText, 393, 20*i, NULL);
+	}
 
 	int x, y;
 

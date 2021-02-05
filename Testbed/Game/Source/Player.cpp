@@ -147,6 +147,15 @@ void Player::Collision(Collider* coll)
 	{
 		paredaba = true;
 	}
+	if (coll->type == Collider::Type::TARGET)
+	{
+		minusLives = !minusLives;
+		if (minusLives)
+		{
+			app->scene->lives--;
+		}
+	}
+	
 
 
 

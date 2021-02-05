@@ -134,6 +134,11 @@ void Target::Collision(Collider* coll)
 		pendingToDelete = true;
 		collider->pendingToDelete = true;
 	}
+	if (coll->type == Collider::Type::PLAYER)
+	{
+		pendingToDelete = true;
+		collider->pendingToDelete = true;
+	}
 }
 
 void Target::CleanUp()
