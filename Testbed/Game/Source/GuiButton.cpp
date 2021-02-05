@@ -59,7 +59,14 @@ bool GuiButton::Draw(Render* render)
             audio = false;
             break;
         case GuiControlState::FOCUSED:
-            render->DrawTexture(textureFocused, bounds.x, bounds.y, NULL);
+            if (id == 11)
+            {
+                render->DrawTexture(textureFocused, bounds.x - 25, bounds.y - 12, NULL);
+            }
+            else
+            {
+                render->DrawTexture(textureFocused, bounds.x - 22, bounds.y - 11, NULL);
+            }
             if (audio == false)
             {
                 audio = true;
