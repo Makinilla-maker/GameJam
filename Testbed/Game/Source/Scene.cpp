@@ -101,7 +101,7 @@ bool Scene::Update(float dt)
 			timer.Start();
 		}
 	}
-	if (amelia && !letitia && !ada)
+	if (amelia || letitia || ada)
 	{
 		timeToSpawn = 0.01f;
 		if (miniGameTime > timeToSpawn)
