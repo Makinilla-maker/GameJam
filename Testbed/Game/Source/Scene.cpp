@@ -46,9 +46,10 @@ bool Scene::Start()
 	app->collisions->AddCollider({ 200,80,10,10 }, Collider::Type::SPRINT, this);
 
 	app->collisions->AddCollider({ 212,0,10,250 }, Collider::Type::PLAYERWALLLEFT, this);
-	app->collisions->AddCollider({ 385,0,10,250 }, Collider::Type::PLAYERWALLRIGHT, this);
+	app->collisions->AddCollider({ 400,0,10,250 }, Collider::Type::PLAYERWALLRIGHT, this);
 	app->collisions->AddCollider({ 200,15,250,10 }, Collider::Type::PLAYERWALLUP, this);
 	app->collisions->AddCollider({ 200, 200,250,10 }, Collider::Type::PLAYERWALLDOWN, this);
+
 	app->entityManager->Start();
 
 	app->entityManager->AddEntity({90.0f,157.0f}, Entity::Type::PLAYER);

@@ -150,8 +150,6 @@ bool PlayerEntity::Draw()
 	{
 		SDL_Rect r = { 3*position.x,3*position.y,3*53,3*52 };
 		pos = { float(r.x + (r.w / 2)), float(r.y + (r.h / 2)) };
-		SDL_SetRenderDrawColor(app->render->renderer, 0, 0, 255, 255);
-		SDL_RenderDrawRect(app->render->renderer, &r);
 	}
 
 	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
@@ -172,19 +170,9 @@ bool PlayerEntity::Draw()
 	{
 		app->entityManager->entityList.At(0)->data->angle = acos(vDestination.y / modDestination) * (180 / 3.1415);
 	}
-	SDL_SetRenderDrawColor(app->render->renderer, 0, 0, 255, 255);
-	SDL_RenderDrawLine(app->render->renderer, pos.x, 0, pos.x, SCREEN_HEIGHT);
-	SDL_RenderDrawLine(app->render->renderer, 0, pos.y, SCREEN_WIDTH, pos.y);
+
 	app->render->DrawTexture(texture, position.x, position.y, &playerRect, 0, angle);
 
-	SDL_SetRenderDrawColor(app->render->renderer, 255, 0, 255, 255);
-	SDL_Point mouse{ 0,0 };
-	SDL_Point center{ SCREEN_WIDTH/2,SCREEN_HEIGHT/2 };
-	SDL_GetMouseState(&mouse.x, &mouse.y);
-	SDL_Point p2{ 0,0 };
-	p2.x = center.x + 2 * (mouse.x - center.x);
-	p2.y = center.y + 2 * (mouse.y - center.y);
-	SDL_RenderDrawLine(app->render->renderer, center.x, center.y, p2.x, p2.y);
 	return true;
 }
 

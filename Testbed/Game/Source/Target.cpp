@@ -11,8 +11,14 @@
 
 Target::Target(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
-	idleAnimation.loop = true;
-	idleAnimation.PushBack({ 0, 0, 20, 20 });
+	idleAnimation.PushBack({ 0, 0, 16, 17 });
+	idleAnimation.PushBack({ 17, 0, 16, 18 });
+	idleAnimation.PushBack({ 34, 0, 16, 19 });
+	idleAnimation.PushBack({ 51, 0, 16, 20 });
+	idleAnimation.PushBack({ 68, 0, 16, 19 });
+	idleAnimation.PushBack({ 85, 0, 16, 18 });
+	idleAnimation.speed = 0.05f;
+	idleAnimation.loop = true; 
 	currentAnimation = &idleAnimation;
 
 	collider = app->collisions->AddCollider(SDL_Rect{ (int)position.x,(int)position.y, 20, 20 }, Collider::Type::TARGET, listener);
@@ -122,6 +128,11 @@ void Target::Collision(Collider* coll)
 		vDestination = { app->entityManager->entityList.At(1)->data->position.x - position.x, app->entityManager->entityList.At(1)->data->position.y - position.y };
 		modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
 		normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
+	}
+	if (coll->type == Collider::Type::PLAYERWALLDOWN || coll->type == Collider::Type::PLAYERWALLRIGHT || coll->type == Collider::Type::PLAYERWALLUP)
+	{
+		pendingToDelete = true;
+		collider->pendingToDelete = true;
 	}
 }
 
