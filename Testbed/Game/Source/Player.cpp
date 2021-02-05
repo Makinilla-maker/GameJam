@@ -43,7 +43,7 @@ Player::Player(Module* listener, fPoint position, SDL_Texture* texture, Type typ
 	walkAnimationDown.speed = 0.1f;
 	currentAnimation = &planeAnimation;
 
-	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y, 12, 11 }), Collider::Type::PLAYER, listener);
+	collider = app->collisions->AddCollider(SDL_Rect({ (int)position.x, (int)position.y+3, 12, 14 }), Collider::Type::PLAYER, listener);
 
 	jumpFx = app->audio->LoadFx("Assets/Audio/FX/jump.wav");
 	doubleJumpFx = app->audio->LoadFx("Assets/Audio/FX/double_jump.wav");
@@ -71,7 +71,7 @@ bool Player::Update(float dt)
 	}
 	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && paredarr == false)
 	{
-		position.y -= 1;
+		position.y -= 1.2;
 		if (currentAnimation != &walkAnimationUp)
 		{
 			walkAnimationUp.Reset();
@@ -80,7 +80,7 @@ bool Player::Update(float dt)
 	}
 	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT && paredaba == false)
 	{
-		position.y += 1;
+		position.y += 1.2;
 		if (currentAnimation != &walkAnimationDown)
 		{
 			walkAnimationDown.Reset();
@@ -89,7 +89,7 @@ bool Player::Update(float dt)
 	}
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && paredizq == false)
 	{
-		position.x -= 1;
+		position.x -= 1.2;
 		if (currentAnimation != &walkAnimationLeft)
 		{
 			walkAnimationLeft.Reset();
@@ -98,7 +98,7 @@ bool Player::Update(float dt)
 	}
 	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && paredder == false)
 	{
-		position.x += 1;
+		position.x += 1.2;
 		if (currentAnimation != &walkAnimationRight)
 		{
 			walkAnimationRight.Reset();
