@@ -25,7 +25,6 @@
     <ClCompile Include="Source\Gun.cpp">
       <Filter>Entities\Weapons</Filter>
     </ClCompile>
-    <ClCompile Include="Source\ModuleFonts.cpp" />
     <ClCompile Include="Source\Logo.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
@@ -57,6 +56,7 @@
     <ClCompile Include="Source\Coins.cpp">
       <Filter>Entities\Non Playable</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Font.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -107,7 +107,6 @@
     <ClInclude Include="Source\Gun.h">
       <Filter>Entities\Weapons</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ModuleFonts.h" />
     <ClInclude Include="Source\Logo.h">
       <Filter>Scenes</Filter>
     </ClInclude>
@@ -142,6 +141,7 @@
     <ClInclude Include="Source\Coins.h">
       <Filter>Entities\Non Playable</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Font.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

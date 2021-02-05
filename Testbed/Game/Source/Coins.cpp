@@ -8,7 +8,7 @@
 #include "Audio.h"
 #include "EntityManager.h"
 #include "Scene.h"
-
+#include "Font.h"
 Coins::Coins(Module* listener, fPoint position, SDL_Texture* texture, Type type) : Entity(listener, position, texture, type)
 {
 	idleAnimation.loop = true;
@@ -37,6 +37,10 @@ bool Coins::Draw()
 	SDL_Rect playerRect = currentAnimation->GetCurrentFrame();
 	app->render->DrawTexture(texture, position.x, position.y, &playerRect);
 
+	char score[64] = { 0 };
+	sprintf_s(score, 64, "Coins: %d", moneyCont);
+	app->render->DrawText(app->render->font, score, 1000, 0, 50, 5, { 255, 255, 43, 255 });
+
 	return true;
 }
 
@@ -51,7 +55,7 @@ void Coins::Collision(Collider* coll)
 	if (collected)
 	{
 		moneyCont++;
-		printf("COins: %d", moneyCont);
+		printf("Coins: %d", moneyCont);
 	}
 }
 

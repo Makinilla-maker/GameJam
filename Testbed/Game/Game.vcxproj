@@ -93,6 +93,7 @@
     <ClCompile Include="Source\Collider.cpp" />
     <ClCompile Include="Source\Collisions.cpp" />
     <ClCompile Include="Source\EntityManager.cpp" />
+    <ClCompile Include="Source\Font.cpp" />
     <ClCompile Include="Source\GuiButton.cpp" />
     <ClCompile Include="Source\GuiCheckBox.cpp" />
     <ClCompile Include="Source\GuiManager.cpp" />
@@ -103,7 +104,6 @@
     <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Audio.cpp" />
     <ClCompile Include="Source\Input.cpp" />
-    <ClCompile Include="Source\ModuleFonts.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\PlayerEntity.cpp" />
     <ClCompile Include="Source\Scene.cpp" />
@@ -119,6 +119,7 @@
     <ClInclude Include="Source\Collisions.h" />
     <ClInclude Include="Source\Entity.h" />
     <ClInclude Include="Source\EntityManager.h" />
+    <ClInclude Include="Source\Font.h" />
     <ClInclude Include="Source\GuiButton.h" />
     <ClInclude Include="Source\GuiCheckBox.h" />
     <ClInclude Include="Source\GuiControl.h" />
@@ -126,7 +127,6 @@
     <ClInclude Include="Source\GuiSlider.h" />
     <ClInclude Include="Source\Gun.h" />
     <ClInclude Include="Source\Logo.h" />
-    <ClInclude Include="Source\ModuleFonts.h" />
     <ClInclude Include="Source\Player.h" />
     <ClInclude Include="Source\PlayerEntity.h" />
     <ClInclude Include="Source\PQueue.h" />

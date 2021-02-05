@@ -4,14 +4,13 @@
 #include "Render.h"
 #include "Textures.h"
 #include "Audio.h"
-#include "ModuleFonts.h"
 #include "Scene.h"
 #include "Logo.h"
 #include "Win.h"
 #include "PlayerEntity.h"
 #include "Collisions.h"
 #include "EntityManager.h"
-
+#include "Font.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -28,7 +27,6 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	render = new Render();
 	tex = new Textures();
 	audio = new Audio();
-	fonts = new ModuleFonts(this);
 	entityManager = new EntityManager();
 	scene = new Scene();
 	logo = new Logo();
@@ -39,7 +37,6 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(win);
 	AddModule(tex);
 	AddModule(audio);
-	AddModule(fonts);
 	AddModule(logo);
 	AddModule(scene);
 	AddModule(winCondition);
