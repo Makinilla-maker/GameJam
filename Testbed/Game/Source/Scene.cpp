@@ -58,7 +58,7 @@ bool Scene::Start()
 	app->entityManager->AddEntity({ 230.0f,115.0f }, Entity::Type::PLAYER2);
 	app->entityManager->AddEntity({ 250.0f,115.0f }, Entity::Type::COINS);
 		
-	waterBckGrnd = app->tex->Load("Assets/Textures/water.png");
+	app->audio->PlayMusic("Assets/Audio/Music/scene_audio.ogg");
 	app->collisions->active = true;
 
 	btn1 = new GuiButton(10, { 232, 207, 25, 25 }, "1");
