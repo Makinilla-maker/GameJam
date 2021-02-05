@@ -24,7 +24,7 @@ public:
 
 	void CleanUp();
 
-	int moneyCont = 0;
+
 
 	bool collected = false;
 private:

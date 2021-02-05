@@ -40,11 +40,20 @@ public:
 
 	bool OnGuiMouseClickEvent(GuiControl* control);
 
+	int moneyCont = 21;
+
+	bool change1 = false;
+	bool change2 = false;
+	bool change3 = false;
+
 	bool firstEntry = true;
 	bool amelia = false;
 	bool letitia = false;
 	bool ada = false;
 
+	bool minus1 = false;
+	bool minus2 = false;
+	bool minus3 = false;
 	SDL_Texture* waterBckGrnd;
 
 	GuiButton* btn1;

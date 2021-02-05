@@ -107,16 +107,19 @@ bool PlayerEntity::Update(float dt)
 		cameraControl = true;
 		currentAnimation->Update();
 	}
-	if (app->scene->amelia)
+	if (app->scene->amelia && app->scene->moneyCont >= 10)
 	{
+		app->scene->moneyCont -= 10;
 		currentAnimation = &planeAnimation;
 	}
-	if (app->scene->letitia)
+	if (app->scene->letitia && app->scene->moneyCont >= 20)
 	{
+		app->scene->moneyCont -= 20;
 		currentAnimation = &letitiaXeringa;
 	}
-	if (app->scene->ada)
+	if (app->scene->ada && app->scene->moneyCont >= 30)
 	{
+		app->scene->moneyCont -= 30;
 		currentAnimation = &adaComputer;
 	}
 	return true;

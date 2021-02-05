@@ -24,6 +24,11 @@ public:
 
 	void CleanUp();
 
+	fPoint vDestination;
+	float modDestination;
+	fPoint normDestination;
+	bool launch = false;
+
 private:
 	Animation idleAnimation;
 

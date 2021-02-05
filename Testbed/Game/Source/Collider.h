@@ -20,6 +20,7 @@ struct Collider
 		TARGET,
 		WIN,
 		TURNLEFT,
+		SPRINT,
 		TURNRIGHT,
 		GOUP,
 		GODOWN,

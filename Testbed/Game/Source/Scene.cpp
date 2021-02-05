@@ -42,7 +42,8 @@ bool Scene::Start()
 	app->collisions->AddCollider({ 43,145,10,10 }, Collider::Type::GODOWN, this);
 	app->collisions->AddCollider({ 43,235,10,10 }, Collider::Type::TURNRIGHT, this);
 	app->collisions->AddCollider({ 188,235,10,10 }, Collider::Type::GOUP, this);
-	app->collisions->AddCollider({ 168,60,10,10 }, Collider::Type::TURNRIGHT, this);
+	app->collisions->AddCollider({ 168,70,10,10 }, Collider::Type::TURNRIGHT, this);
+	app->collisions->AddCollider({ 200,80,10,10 }, Collider::Type::SPRINT, this);
 
 	app->collisions->AddCollider({ 212,0,10,250 }, Collider::Type::PLAYERWALLLEFT, this);
 	app->collisions->AddCollider({ 385,0,10,250 }, Collider::Type::PLAYERWALLRIGHT, this);
@@ -89,6 +90,7 @@ bool Scene::Update(float dt)
 		miniGameTime = 0;
 		timer.Start();
 	}
+	
 	btn1->Update(app->input, dt);
 	btn2->Update(app->input, dt);
 	btn3->Update(app->input, dt);
@@ -143,27 +145,27 @@ bool Scene::OnGuiMouseClickEvent(GuiControl* control)
 {
 	switch (control->type)
 	{
-	case GuiControlType::BUTTON:
-	{
-		if (control->id == 10 && amelia == false)
+		case GuiControlType::BUTTON:
 		{
-			amelia = true;
-			letitia = false;
-			ada = false;
+			if (control->id == 10 && amelia == false)
+			{
+				amelia = true;
+				letitia = false;
+				ada = false;
+			}
+			if (control->id == 11 && letitia == false)
+			{
+				letitia = true;
+				amelia = false;
+				ada = false;
+			}
+			if (control->id == 12 && ada == false)
+			{
+				letitia = false;
+				amelia = false;
+				ada = true;
+			}
 		}
-		if (control->id == 11 && letitia == false)
-		{
-			letitia = true;
-			amelia = false;
-			ada = false;
-		}
-		if (control->id == 12 && ada == false)
-		{
-			letitia = false;
-			amelia = false;
-			ada = true;
-		}
-	}
 	}
     return true;
 }

@@ -38,7 +38,7 @@ bool Coins::Draw()
 	app->render->DrawTexture(texture, position.x, position.y, &playerRect);
 
 	char score[64] = { 0 };
-	sprintf_s(score, 64, "Coins: %d", moneyCont);
+	sprintf_s(score, 64, "Coins: %d", app->scene->moneyCont);
  	app->render->DrawText(app->render->font, score, 1000, 0, 50, 5, { 255, 255, 43, 255 });
 
 	return true;
@@ -54,8 +54,8 @@ void Coins::Collision(Collider* coll)
 	}
 	if (collected)
 	{
-		moneyCont++;
-		printf("Coins: %d", moneyCont);
+		app->scene->moneyCont++;
+		printf("Coins: %d", app->scene->moneyCont);
 	}
 }
 

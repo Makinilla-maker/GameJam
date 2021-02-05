@@ -26,29 +26,38 @@ bool Target::Start()
 
 bool Target::Update(float dt)
 {
-	if (position.x > 427)
+	if (!launch)
 	{
-		pendingToDelete = true;
+
+		if (position.x > 427)
+		{
+			pendingToDelete = true;
+		}
+		if (goLeft)
+		{
+			position.y += 0;
+			position.x -= 0.5;
+		}
+		if (goDown)
+		{
+			position.y += 0.5;
+			position.x += 0;
+		}
+		if (goRight)
+		{
+			position.y += 0;
+			position.x += 0.5;
+		}
+		if (goUp)
+		{
+			position.y -= 0.5;
+			position.x += 0;
+		}
 	}
-	if (goLeft)
+	else
 	{
-		position.y += 0;
-		position.x -= 0.5;
-	}
-	if (goDown)
-	{
-		position.y += 0.5;
-		position.x += 0;
-	}
-	if (goRight)
-	{
-		position.y += 0;
-		position.x += 0.5;
-	}
-	if (goUp)
-	{
-		position.y -= 0.5;
-		position.x += 0;
+		position.x += normDestination.x*2.5f;
+		position.y += normDestination.y*2.5;
 	}
 	collider->SetPos(position.x, position.y);
 	currentAnimation->Update();
@@ -106,6 +115,13 @@ void Target::Collision(Collider* coll)
 		goDown = false;
 		goRight = false;
 		goUp = true;
+	}
+	if (coll->type == Collider::Type::SPRINT)
+	{
+		launch = true;
+		vDestination = { app->entityManager->entityList.At(1)->data->position.x - position.x, app->entityManager->entityList.At(1)->data->position.y - position.y };
+		modDestination = sqrt(pow(vDestination.x, 2) + pow(vDestination.y, 2));
+		normDestination = { vDestination.x / modDestination, vDestination.y / modDestination };
 	}
 }
 
