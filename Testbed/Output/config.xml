@@ -1,7 +1,7 @@
 <!-- Config file for the game -->
 <config>
   <app framerate_cap="60">
-    <title>Game (Guorms by Peko Group)</title>
+    <title>Game (TDM Group)</title>
     <organization>UPC</organization>
   </app>
   <renderer>

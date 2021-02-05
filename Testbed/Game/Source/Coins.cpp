@@ -39,7 +39,7 @@ bool Coins::Draw()
 
 	char score[64] = { 0 };
 	sprintf_s(score, 64, "Coins: %d", moneyCont);
-	app->render->DrawText(app->render->font, score, 1000, 0, 50, 5, { 255, 255, 43, 255 });
+ 	app->render->DrawText(app->render->font, score, 1000, 0, 50, 5, { 255, 255, 43, 255 });
 
 	return true;
 }

@@ -93,7 +93,7 @@ bool Scene::Update(float dt)
 	btn2->Update(app->input, dt);
 	btn3->Update(app->input, dt);
 
-	return true;
+		return true;
 }
 
 // Called each loop iteration
@@ -110,6 +110,15 @@ bool Scene::PostUpdate()
 	btn1->Draw(app->render);
 	btn2->Draw(app->render);
 	btn3->Draw(app->render);
+
+	int x, y;
+
+	app->input->GetMousePosition(x, y);
+
+	if (amelia == true & (x > 239 && x < 257 && y>207 && y < 232))
+	{
+		app->render->DrawText(app->render->fonts, "1ra aviadora en travesar el atlantico", 400, 50, 50, 5, { 0, 0, 0, 0 });
+	}
 
 	return ret;
 }

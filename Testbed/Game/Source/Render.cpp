@@ -60,6 +60,10 @@ bool Render::Start()
 	// back background
 	texF = app->tex->Load("Assets/Fonts/font.png");
 	font = new Font("Assets/Fonts/font.xml", texF);
+
+	texFs = app->tex->Load("Assets/Fonts/fonts.png");
+	fonts = new Font("Assets/Fonts/fonts.xml", texFs);
+
 	SDL_RenderGetViewport(renderer, &viewport);
 	return true;
 }
