@@ -152,18 +152,21 @@ bool Scene::OnGuiMouseClickEvent(GuiControl* control)
 				amelia = true;
 				letitia = false;
 				ada = false;
+				change1 = true;
 			}
 			if (control->id == 11 && letitia == false)
 			{
 				letitia = true;
 				amelia = false;
 				ada = false;
+				change2 = true;
 			}
 			if (control->id == 12 && ada == false)
 			{
 				letitia = false;
 				amelia = false;
 				ada = true;
+				change3 = true;
 			}
 		}
 	}

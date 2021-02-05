@@ -42,14 +42,14 @@ public:
 
 	int moneyCont = 21;
 
-	bool change1 = false;
-	bool change2 = false;
-	bool change3 = false;
-
 	bool firstEntry = true;
 	bool amelia = false;
 	bool letitia = false;
 	bool ada = false;
+	
+	bool change1 = false;
+	bool change2 = false;
+	bool change3 = false;
 
 	bool minus1 = false;
 	bool minus2 = false;

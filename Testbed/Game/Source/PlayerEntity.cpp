@@ -109,19 +109,31 @@ bool PlayerEntity::Update(float dt)
 	}
 	if (app->scene->amelia && app->scene->moneyCont >= 10)
 	{
-		app->scene->moneyCont -= 10;
-		currentAnimation = &planeAnimation;
+		if (app->scene->change1)
+		{
+			app->scene->moneyCont -= 10;
+			currentAnimation = &planeAnimation;
+		}
 	}
 	if (app->scene->letitia && app->scene->moneyCont >= 20)
 	{
-		app->scene->moneyCont -= 20;
-		currentAnimation = &letitiaXeringa;
+		if (app->scene->change2)
+		{
+			app->scene->moneyCont -= 20;
+			currentAnimation = &letitiaXeringa;
+		}
 	}
 	if (app->scene->ada && app->scene->moneyCont >= 30)
 	{
-		app->scene->moneyCont -= 30;
-		currentAnimation = &adaComputer;
+		if (app->scene->change3)
+		{
+			app->scene->moneyCont -= 30;
+			currentAnimation = &adaComputer;
+		}
 	}
+	app->scene->change1 = false;
+	app->scene->change2 = false;
+	app->scene->change3 = false;
 	return true;
 }
 

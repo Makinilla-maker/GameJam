@@ -29,7 +29,9 @@ public:
 
 	void CleanUp();
 
-	
+	bool changed1 = false;
+	bool changed2 = false;
+	bool changed3 = false;	
 private:
 
 	Animation planeAnimation;
