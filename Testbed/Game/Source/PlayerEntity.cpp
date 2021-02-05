@@ -261,8 +261,6 @@ bool PlayerEntity::Draw()
 		app->render->DrawTexture(texture, position.x, position.y, &playerRect, 0, 0);
 	}
 	
-	
-
 	return true;
 }
 
