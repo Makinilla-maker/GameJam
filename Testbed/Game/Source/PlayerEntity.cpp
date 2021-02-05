@@ -198,7 +198,6 @@ bool PlayerEntity::Update(float dt)
 		if (app->scene->change2)
 		{
 			app->entityManager->powerfire = true;
-			app->scene->moneyCont -= 20;
 			currentAnimation = &letitiaXeringa;
 		}
 	}
@@ -207,13 +206,11 @@ bool PlayerEntity::Update(float dt)
 		if (app->scene->change3)
 		{
 			doubleshot = true;
-			app->scene->moneyCont -= 30;
+			
 			currentAnimation = &adaComputer;
 		}
 	}
-	app->scene->change1 = false;
-	app->scene->change2 = false;
-	app->scene->change3 = false;
+
 	return true;
 }
 

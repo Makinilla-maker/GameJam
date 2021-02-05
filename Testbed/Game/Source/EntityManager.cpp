@@ -28,8 +28,6 @@ bool EntityManager::Start()
 	texPlayer = app->tex->Load("Assets/Textures/allAnims.png");
 	texTarget = app->tex->Load("Assets/Textures/target.png");
 	texGun1= app->tex->Load("Assets/Textures/bala1.png");
-	texGun2 = app->tex->Load("Assets/Textures/hgranade.png");
-	texGun3 = app->tex->Load("Assets/Textures/hgranade.png");
 	playerAnimation = app->tex->Load("Assets/Textures/player_sprite.png");
 	coinAnimation = app->tex->Load("Assets/Textures/coin.png");
 	

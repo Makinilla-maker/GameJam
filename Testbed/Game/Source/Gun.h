@@ -45,6 +45,8 @@ private:
 	float speedY;
 
 	Timer timer;
+
+	bool stopu;
 };
 
 

@@ -26,6 +26,10 @@ Gun::Gun(Module* listener, fPoint position, SDL_Texture* texture, Type type) : E
 	bulet3.speed = 0.1f;
 
 	currentAnimation = &bulet1;
+
+	if (app->scene->change1)	currentAnimation = &bulet1;
+	if (app->scene->change2)	currentAnimation = &bulet3;
+	if (app->scene->change3)	currentAnimation = &bulet2;
 	for (int i = app->entityManager->entityList.Count(); i > 0; i--)
 	{
 		if(app->entityManager->entityList.At(i+2) != nullptr)
@@ -46,28 +50,47 @@ bool Gun::Start()
 
 bool Gun::Update(float dt)
 {
-
-	if (app->scene->amelia && app->scene->moneyCont >= 10)
+	
+	if (app->scene->amelia && app->scene->moneyCont >= 10 && stopu == false)
 	{
+		
 		if (app->scene->change1)
 		{
 			currentAnimation = &bulet1;
+			stopu = true;
 		}
 	}
-	if (app->scene->letitia && app->scene->moneyCont >= 20)
+	if (app->scene->letitia && stopu == false)
 	{
-		if (app->scene->change2)
+		
+		if (app->scene->moneyCont >= 20)
 		{
-			currentAnimation = &bulet2;
+			
+			if (app->scene->change2)
+			{
+				app->scene->moneyCont -= 20;
+				currentAnimation = &bulet2;
+				stopu = true;
+			}
 		}
 	}
-	if (app->scene->ada && app->scene->moneyCont >= 30)
+	if (app->scene->ada && app->scene->moneyCont >= 30 && stopu == false)
 	{
+		
 		if (app->scene->change3)
 		{
+			app->scene->moneyCont -= 30;
 			currentAnimation = &bulet3;
+			stopu = true;
 		}
 	}
+	stopu = false;
+	app->scene->letitia = false;
+	app->scene->amelia = false;
+	app->scene->ada = false;
+	/*app->scene->change1 = false;
+	app->scene->change2 = false;
+	app->scene->change3 = false;*/
 	
 	position.x += normDestination.x * 10.0f;
 	position.y += normDestination.y * 10.0f;

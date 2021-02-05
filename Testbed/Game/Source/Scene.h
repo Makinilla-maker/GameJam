@@ -40,7 +40,7 @@ public:
 
 	bool OnGuiMouseClickEvent(GuiControl* control);
 
-	int moneyCont = 21;
+	int moneyCont = 0;
 
 	bool firstEntry = true;
 	bool amelia = false;
